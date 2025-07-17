@@ -1,0 +1,235 @@
+INFO  15:56:07,896 - Compiling source file: C:\Users\kokan\Konstantin Vuckovic\si\PP1\MJCompiler\MJCompiler\test\program.mj
+INFO  15:56:08,127 - #2 program
+INFO  15:56:08,127 - #49 prog
+INFO  15:56:08,127 - #8 const
+INFO  15:56:08,133 - #49 int
+INFO  15:56:08,133 - #49 tableSize
+INFO  15:56:08,135 - #35 =
+INFO  15:56:08,135 - #46 10
+INFO  15:56:08,135 - #38 ,
+INFO  15:56:08,135 - #49 c
+INFO  15:56:08,135 - #35 =
+INFO  15:56:08,135 - #46 3
+INFO  15:56:08,135 - #38 ,
+INFO  15:56:08,135 - #49 d
+INFO  15:56:08,135 - #35 =
+INFO  15:56:08,135 - #46 5
+INFO  15:56:08,135 - #36 ;
+INFO  15:56:08,135 - #8 const
+INFO  15:56:08,143 - #49 bool
+INFO  15:56:08,148 - #49 a
+INFO  15:56:08,148 - #35 =
+INFO  15:56:08,148 - #47 true
+INFO  15:56:08,149 - #38 ,
+INFO  15:56:08,149 - #49 b
+INFO  15:56:08,149 - #35 =
+INFO  15:56:08,149 - #47 false
+INFO  15:56:08,149 - #36 ;
+INFO  15:56:08,149 - #8 const
+INFO  15:56:08,149 - #49 char
+INFO  15:56:08,149 - #49 f
+INFO  15:56:08,149 - #35 =
+INFO  15:56:08,153 - #48 a
+INFO  15:56:08,153 - #36 ;
+INFO  15:56:08,153 - #44 {
+INFO  15:56:08,153 - #12 void
+INFO  15:56:08,157 - #49 f
+INFO  15:56:08,157 - #40 (
+INFO  15:56:08,163 - #49 char
+INFO  15:56:08,163 - #49 ch
+INFO  15:56:08,163 - #38 ,
+INFO  15:56:08,166 - #49 int
+INFO  15:56:08,166 - #49 j
+INFO  15:56:08,166 - #38 ,
+INFO  15:56:08,166 - #49 int
+INFO  15:56:08,166 - #49 arg
+INFO  15:56:08,166 - #41 )
+INFO  15:56:08,166 - #49 int
+INFO  15:56:08,173 - #49 x
+INFO  15:56:08,173 - #36 ;
+INFO  15:56:08,173 - #44 {
+INFO  15:56:08,173 - #49 x
+INFO  15:56:08,173 - #35 =
+INFO  15:56:08,173 - #49 arg
+INFO  15:56:08,173 - #36 ;
+INFO  15:56:08,183 - #45 }
+INFO  15:56:08,183 - #45 }
+INFO  15:56:08,193 - Program(
+  ProgramName(
+   prog
+  ) [ProgramName]
+  ProgDeclList(
+    ProgDeclList(
+      ProgDeclList(
+        NoProgDeclList(
+        ) [NoProgDeclList]
+        ConstDeclType(
+          ConstDecl(
+            Type(
+             int
+            ) [Type]
+           tableSize
+            NumConst(
+             10
+            ) [NumConst]
+            ConstDeclarations(
+              ConstDeclarations(
+                NoConstDeclarations(
+                ) [NoConstDeclarations]
+               c
+                NumConst(
+                 3
+                ) [NumConst]
+              ) [ConstDeclarations]
+             d
+              NumConst(
+               5
+              ) [NumConst]
+            ) [ConstDeclarations]
+          ) [ConstDecl]
+        ) [ConstDeclType]
+      ) [ProgDeclList]
+      ConstDeclType(
+        ConstDecl(
+          Type(
+           bool
+          ) [Type]
+         a
+          BoolConst(
+           true
+          ) [BoolConst]
+          ConstDeclarations(
+            NoConstDeclarations(
+            ) [NoConstDeclarations]
+           b
+            BoolConst(
+             false
+            ) [BoolConst]
+          ) [ConstDeclarations]
+        ) [ConstDecl]
+      ) [ConstDeclType]
+    ) [ProgDeclList]
+    ConstDeclType(
+      ConstDecl(
+        Type(
+         char
+        ) [Type]
+       f
+        CharConst(
+         a
+        ) [CharConst]
+        NoConstDeclarations(
+        ) [NoConstDeclarations]
+      ) [ConstDecl]
+    ) [ConstDeclType]
+  ) [ProgDeclList]
+  MethodDeclarations(
+    NoMethodDeclarations(
+    ) [NoMethodDeclarations]
+    MethodDecl(
+      MethodSignature(
+        ReturnVoid(
+        ) [ReturnVoid]
+       f
+        Pars(
+          FormParams(
+            Type(
+             char
+            ) [Type]
+           ch
+            NoArray(
+            ) [NoArray]
+            FormParamsMore(
+              FormParsMoreItems(
+                FormParamsMoreItem(
+                  Type(
+                   int
+                  ) [Type]
+                 j
+                  NoArray(
+                  ) [NoArray]
+                ) [FormParamsMoreItem]
+                FormParsMoreLastItem(
+                  Type(
+                   int
+                  ) [Type]
+                 arg
+                  NoArray(
+                  ) [NoArray]
+                ) [FormParsMoreLastItem]
+              ) [FormParsMoreItems]
+            ) [FormParamsMore]
+          ) [FormParams]
+        ) [Pars]
+      ) [MethodSignature]
+      VarDeclarations(
+        NoVarDeclarations(
+        ) [NoVarDeclarations]
+        VarDeclaration(
+          Type(
+           int
+          ) [Type]
+         x
+          NoArray(
+          ) [NoArray]
+          NoVarDeclarationMore(
+          ) [NoVarDeclarationMore]
+        ) [VarDeclaration]
+      ) [VarDeclarations]
+      Statements(
+        NoStatements(
+        ) [NoStatements]
+        MatchedStmt(
+          DesignatorStmtt(
+            DesignatorStmt(
+              Designtor(
+               x
+                NoDesignators(
+                ) [NoDesignators]
+              ) [Designtor]
+              Assignement(
+                Assign(
+                ) [Assign]
+                DesignatorExpr(
+                  Expretion(
+                    Term(
+                      DesignatorFactor(
+                        Designtor(
+                         arg
+                          NoDesignators(
+                          ) [NoDesignators]
+                        ) [Designtor]
+                        NoOptionalActParamsParen(
+                        ) [NoOptionalActParamsParen]
+                      ) [DesignatorFactor]
+                      NoFactors(
+                      ) [NoFactors]
+                    ) [Term]
+                    NoTerms(
+                    ) [NoTerms]
+                  ) [Expretion]
+                ) [DesignatorExpr]
+              ) [Assignement]
+            ) [DesignatorStmt]
+          ) [DesignatorStmtt]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  15:56:08,193 - ===================================
+INFO  15:56:08,223 - Deklarisana konstanta c i ima vrednost 3 na liniji 22
+INFO  15:56:08,223 - Deklarisana konstanta d i ima vrednost 5 na liniji 22
+INFO  15:56:08,223 - Deklarisana konstanta tableSize i ima vrednost 10 na liniji 3
+INFO  15:56:08,223 - Deklarisana konstanta b i ima vrednost 0 na liniji 15
+INFO  15:56:08,223 - Deklarisana konstanta a i ima vrednost 1 na liniji 4
+INFO  15:56:08,223 - Deklarisana konstanta f i ima vrednost 97 na liniji 5
+INFO  15:56:08,224 - Deklarisan parametar j na liniji 7
+INFO  15:56:08,224 - Deklarisan parametar arg na liniji 7
+INFO  15:56:08,224 - Deklarisan parametar ch na liniji 7
+INFO  15:56:08,224 - Obradjuje se funkcija f na liniji 7
+INFO  15:56:08,224 - Deklarisana promenljiva x na liniji 8
+ERROR 15:56:08,224 - 0 rs.etf.pp1.symboltable.concepts.Struct@300ffa5d
+ERROR 15:56:08,224 - Greska na liniji 7: Funcija f nema return iskaz!
+INFO  15:56:08,224 - ===================================
+ERROR 15:56:08,224 - Parsiranje NIJE uspesno zavrseno!

@@ -1,0 +1,131 @@
+INFO  12:29:49,606 - Compiling source file: C:\Users\kokan\Desktop\projPP1\test\program.mj
+INFO  12:29:49,606 - =====================================================================
+INFO  12:29:49,607 - ========================= SINTAKSNA ANALIZA =========================
+INFO  12:29:49,607 - =====================================================================
+INFO  12:29:49,881 - ========================= SINTAKSNO STABLO =========================
+INFO  12:29:49,883 - Program(
+  ProgramName(
+   prog
+  ) [ProgramName]
+  ProgDeclList(
+    ProgDeclList(
+      NoProgDeclList(
+      ) [NoProgDeclList]
+      ConstDeclType(
+        ConstDecl(
+          Type(
+           int
+          ) [Type]
+          ConstDeclaration(
+            ConstItem(
+             pi
+              NumConst(
+               3
+              ) [NumConst]
+            ) [ConstItem]
+          ) [ConstDeclaration]
+        ) [ConstDecl]
+      ) [ConstDeclType]
+    ) [ProgDeclList]
+    VarDeclType(
+      GlobalVarDecl(
+        Type(
+         int
+        ) [Type]
+        GLobalVarListMore(
+          GlobalVarListEnd(
+            GlobalVar(
+             x
+              NoArray(
+              ) [NoArray]
+            ) [GlobalVar]
+          ) [GlobalVarListEnd]
+          GlobalVar(
+           y
+            Array(
+            ) [Array]
+          ) [GlobalVar]
+        ) [GLobalVarListMore]
+      ) [GlobalVarDecl]
+    ) [VarDeclType]
+  ) [ProgDeclList]
+  MethodDeclarations(
+    NoMethodDeclarations(
+    ) [NoMethodDeclarations]
+    MethodDecl(
+      MethodSignature(
+        ReturnVoid(
+        ) [ReturnVoid]
+       main
+      ) [MethodSignature]
+      NoPars(
+      ) [NoPars]
+      VarDeclarations(
+        VarDeclarations(
+          NoVarDeclarations(
+          ) [NoVarDeclarations]
+          VarDeclaration(
+            Type(
+             int
+            ) [Type]
+            VarListMore(
+              VarListEnd(
+                VarItem(
+                 a
+                  NoArray(
+                  ) [NoArray]
+                ) [VarItem]
+              ) [VarListEnd]
+              VarItem(
+               b
+                NoArray(
+                ) [NoArray]
+              ) [VarItem]
+            ) [VarListMore]
+          ) [VarDeclaration]
+        ) [VarDeclarations]
+        VarDeclaration(
+          Type(
+           char
+          ) [Type]
+          VarListEnd(
+            VarItem(
+             car
+              Array(
+              ) [Array]
+            ) [VarItem]
+          ) [VarListEnd]
+        ) [VarDeclaration]
+      ) [VarDeclarations]
+      Statements(
+        NoStatements(
+        ) [NoStatements]
+        MatchedStmt(
+          Print(
+            Expretion(
+              AddTerm(
+                Term(
+                  TermFactor(
+                    NoUnaryFactor(
+                      NumConstFactor(
+                       1
+                      ) [NumConstFactor]
+                    ) [NoUnaryFactor]
+                  ) [TermFactor]
+                ) [Term]
+              ) [AddTerm]
+            ) [Expretion]
+            NoPrintNumConst(
+            ) [NoPrintNumConst]
+          ) [Print]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  12:29:49,886 - =====================================================================
+INFO  12:29:49,886 - ========================= SEMANTICKA ANALIZA =========================
+INFO  12:29:49,886 - =====================================================================
+INFO  12:29:49,907 - true
+INFO  12:29:49,909 - true
+INFO  12:29:49,934 - Generisanje uspesno zavrseno!

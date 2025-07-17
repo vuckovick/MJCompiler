@@ -1,0 +1,167 @@
+INFO  14:03:01,589 - Compiling source file: C:\Users\kokan\Konstantin Vuckovic\si\PP1\MJCompiler\MJCompiler\test\program.mj
+INFO  14:03:01,758 - #2 program
+INFO  14:03:01,758 - #49 prog
+INFO  14:03:01,758 - #8 const
+INFO  14:03:01,760 - #49 int
+INFO  14:03:01,760 - #49 tableSize
+INFO  14:03:01,762 - #35 =
+INFO  14:03:01,763 - #46 10
+INFO  14:03:01,763 - #38 ,
+INFO  14:03:01,765 - #49 c
+INFO  14:03:01,765 - #35 =
+INFO  14:03:01,765 - #46 3
+INFO  14:03:01,765 - #38 ,
+INFO  14:03:01,765 - #49 d
+INFO  14:03:01,765 - #35 =
+INFO  14:03:01,765 - #46 5
+INFO  14:03:01,766 - #36 ;
+INFO  14:03:01,766 - #8 const
+ERROR 14:03:01,766 - 
+Sintaksna greska na liniji 4, na koloni 0
+INFO  14:03:01,766 - #49 bool
+INFO  14:03:01,766 - #49 a
+INFO  14:03:01,766 - #35 =
+INFO  14:03:01,767 - #47 true
+INFO  14:03:01,767 - #38 ,
+INFO  14:03:01,767 - #49 b
+INFO  14:03:01,767 - #35 =
+INFO  14:03:01,767 - #47 false
+INFO  14:03:01,768 - #36 ;
+INFO  14:03:01,768 - #8 const
+INFO  14:03:01,768 - #49 char
+INFO  14:03:01,768 - #49 f
+INFO  14:03:01,768 - #35 =
+INFO  14:03:01,768 - #48 a
+INFO  14:03:01,768 - #36 ;
+INFO  14:03:01,768 - #44 {
+INFO  14:03:01,769 - #12 void
+INFO  14:03:01,769 - #49 f
+INFO  14:03:01,775 - #40 (
+INFO  14:03:01,775 - #49 char
+INFO  14:03:01,775 - #49 ch
+INFO  14:03:01,775 - #38 ,
+INFO  14:03:01,777 - #49 int
+INFO  14:03:01,777 - #49 a
+INFO  14:03:01,777 - #38 ,
+INFO  14:03:01,777 - #49 int
+INFO  14:03:01,777 - #49 arg
+INFO  14:03:01,777 - #41 )
+INFO  14:03:01,777 - #49 int
+INFO  14:03:01,779 - #49 x
+INFO  14:03:01,779 - #36 ;
+INFO  14:03:01,779 - #44 {
+INFO  14:03:01,779 - #49 x
+INFO  14:03:01,780 - #35 =
+INFO  14:03:01,781 - #49 arg
+INFO  14:03:01,782 - #36 ;
+INFO  14:03:01,788 - #45 }
+INFO  14:03:01,789 - #45 }
+INFO  14:03:01,792 - Program(
+  ProgramName(
+   prog
+  ) [ProgramName]
+  ProgDeclList(
+    VarDeclType(
+      VarDeclarationError(
+        NoVarDeclarationMore(
+        ) [NoVarDeclarationMore]
+      ) [VarDeclarationError]
+    ) [VarDeclType]
+  ) [ProgDeclList]
+  MethodDeclarations(
+    NoMethodDeclarations(
+    ) [NoMethodDeclarations]
+    MethodDecl(
+      MethodeSignature(
+        ReturnVoid(
+        ) [ReturnVoid]
+       f
+        Pars(
+          FormParams(
+            Type(
+             char
+            ) [Type]
+           ch
+            NoArray(
+            ) [NoArray]
+            FormParamsMore(
+              FormParsMoreItems(
+                FormParamsMoreItem(
+                  Type(
+                   int
+                  ) [Type]
+                 a
+                  NoArray(
+                  ) [NoArray]
+                ) [FormParamsMoreItem]
+                FormParsMoreLastItem(
+                  Type(
+                   int
+                  ) [Type]
+                 arg
+                  NoArray(
+                  ) [NoArray]
+                ) [FormParsMoreLastItem]
+              ) [FormParsMoreItems]
+            ) [FormParamsMore]
+          ) [FormParams]
+        ) [Pars]
+      ) [MethodeSignature]
+      VarDeclarations(
+        NoVarDeclarations(
+        ) [NoVarDeclarations]
+        VarDeclaration(
+          Type(
+           int
+          ) [Type]
+         x
+          NoArray(
+          ) [NoArray]
+          NoVarDeclarationMore(
+          ) [NoVarDeclarationMore]
+        ) [VarDeclaration]
+      ) [VarDeclarations]
+      Statements(
+        NoStatements(
+        ) [NoStatements]
+        MatchedStmt(
+          DesignatorStmtt(
+            DesignatorStmt(
+              Designtor(
+               x
+                NoDesignators(
+                ) [NoDesignators]
+              ) [Designtor]
+              Assignement(
+                Assign(
+                ) [Assign]
+                DesignatorExpr(
+                  Expretion(
+                    Term(
+                      DesignatorFactor(
+                        Designtor(
+                         arg
+                          NoDesignators(
+                          ) [NoDesignators]
+                        ) [Designtor]
+                        NoOptionalActParamsParen(
+                        ) [NoOptionalActParamsParen]
+                      ) [DesignatorFactor]
+                      NoFactors(
+                      ) [NoFactors]
+                    ) [Term]
+                    NoTerms(
+                    ) [NoTerms]
+                  ) [Expretion]
+                ) [DesignatorExpr]
+              ) [Assignement]
+            ) [DesignatorStmt]
+          ) [DesignatorStmtt]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  14:03:01,794 - ===================================
+INFO  14:03:01,803 - ===================================
+ERROR 14:03:01,807 - Parsiranje NIJE uspesno zavrseno!

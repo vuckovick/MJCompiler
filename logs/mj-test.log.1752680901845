@@ -1,0 +1,111 @@
+INFO  17:35:46,883 - Compiling source file: C:\Users\kokan\Konstantin Vuckovic\si\PP1\MJCompiler\MJCompiler\test\program.mj
+INFO  17:35:46,884 - =====================================================================
+INFO  17:35:46,884 - ========================= SINTAKSNA ANALIZA =========================
+INFO  17:35:46,884 - =====================================================================
+INFO  17:35:47,003 - ========================= SINTAKSNO STABLO =========================
+INFO  17:35:47,004 - Program(
+  ProgramName(
+   prog
+  ) [ProgramName]
+  ProgDeclList(
+    ProgDeclList(
+      NoProgDeclList(
+      ) [NoProgDeclList]
+      ConstDeclType(
+        ConstDecl(
+          Type(
+           int
+          ) [Type]
+          ConstDeclaration(
+            ConstItem(
+             pi
+              NumConst(
+               3
+              ) [NumConst]
+            ) [ConstItem]
+          ) [ConstDeclaration]
+        ) [ConstDecl]
+      ) [ConstDeclType]
+    ) [ProgDeclList]
+    VarDeclType(
+      GlobalVarDecl(
+        Type(
+         int
+        ) [Type]
+        GLobalVarListMore(
+          GlobalVarListEnd(
+            GlobalVar(
+             x
+              NoArray(
+              ) [NoArray]
+            ) [GlobalVar]
+          ) [GlobalVarListEnd]
+          GlobalVar(
+           y
+            Array(
+            ) [Array]
+          ) [GlobalVar]
+        ) [GLobalVarListMore]
+      ) [GlobalVarDecl]
+    ) [VarDeclType]
+  ) [ProgDeclList]
+  MethodDeclarations(
+    MethodDeclarations(
+      NoMethodDeclarations(
+      ) [NoMethodDeclarations]
+      MethodDecl(
+        MethodSignature(
+          ReturnVoid(
+          ) [ReturnVoid]
+         main
+        ) [MethodSignature]
+        NoPars(
+        ) [NoPars]
+        NoVarDeclarations(
+        ) [NoVarDeclarations]
+        Statements(
+          NoStatements(
+          ) [NoStatements]
+          MatchedStmt(
+            Print(
+              Expretion(
+                AddTerm(
+                  Term(
+                    TermFactor(
+                      NoUnaryFactor(
+                        NumConstFactor(
+                         1
+                        ) [NumConstFactor]
+                      ) [NoUnaryFactor]
+                    ) [TermFactor]
+                  ) [Term]
+                ) [AddTerm]
+              ) [Expretion]
+              NoPrintNumConst(
+              ) [NoPrintNumConst]
+            ) [Print]
+          ) [MatchedStmt]
+        ) [Statements]
+      ) [MethodDecl]
+    ) [MethodDeclarations]
+    MethodDecl(
+      MethodSignature(
+        ReturnVoid(
+        ) [ReturnVoid]
+       ab
+      ) [MethodSignature]
+      NoPars(
+      ) [NoPars]
+      NoVarDeclarations(
+      ) [NoVarDeclarations]
+      NoStatements(
+      ) [NoStatements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  17:35:47,006 - =====================================================================
+INFO  17:35:47,006 - ========================= SEMANTICKA ANALIZA =========================
+INFO  17:35:47,006 - =====================================================================
+INFO  17:35:47,012 - true
+INFO  17:35:47,012 - true
+INFO  17:35:47,023 - Generisanje uspesno zavrseno!

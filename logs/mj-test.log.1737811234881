@@ -1,0 +1,480 @@
+INFO  14:08:32,984 - Compiling source file: C:\Users\kokan\Konstantin Vuckovic\si\PP1\MJCompiler\MJCompiler\test\program.mj
+INFO  14:08:33,144 - #2 program
+INFO  14:08:33,145 - #49 prog
+INFO  14:08:33,145 - #8 const
+INFO  14:08:33,146 - #49 int
+INFO  14:08:33,146 - #49 tableSize
+INFO  14:08:33,147 - #35 =
+INFO  14:08:33,147 - #46 10
+INFO  14:08:33,147 - #38 ,
+INFO  14:08:33,148 - #49 c
+INFO  14:08:33,148 - #35 =
+INFO  14:08:33,148 - #46 3
+INFO  14:08:33,148 - #38 ,
+INFO  14:08:33,148 - #49 d
+INFO  14:08:33,148 - #35 =
+INFO  14:08:33,148 - #46 5
+INFO  14:08:33,148 - #36 ;
+INFO  14:08:33,148 - #8 const
+INFO  14:08:33,150 - #49 bool
+INFO  14:08:33,150 - #49 a
+INFO  14:08:33,150 - #35 =
+INFO  14:08:33,150 - #47 true
+INFO  14:08:33,150 - #38 ,
+INFO  14:08:33,150 - #49 b
+INFO  14:08:33,150 - #35 =
+INFO  14:08:33,151 - #47 false
+INFO  14:08:33,151 - #36 ;
+INFO  14:08:33,151 - #8 const
+INFO  14:08:33,151 - #49 char
+INFO  14:08:33,151 - #49 f
+INFO  14:08:33,151 - #35 =
+INFO  14:08:33,151 - #48 a
+INFO  14:08:33,151 - #36 ;
+INFO  14:08:33,151 - #44 {
+INFO  14:08:33,151 - #12 void
+INFO  14:08:33,153 - #49 fa
+INFO  14:08:33,154 - #40 (
+INFO  14:08:33,159 - #49 char
+INFO  14:08:33,160 - #49 ch
+INFO  14:08:33,160 - #38 ,
+INFO  14:08:33,162 - #49 int
+INFO  14:08:33,163 - #49 j
+INFO  14:08:33,163 - #38 ,
+INFO  14:08:33,163 - #49 int
+INFO  14:08:33,164 - #49 arg
+INFO  14:08:33,164 - #41 )
+INFO  14:08:33,164 - #49 int
+INFO  14:08:33,167 - #49 x
+INFO  14:08:33,167 - #36 ;
+INFO  14:08:33,167 - #44 {
+INFO  14:08:33,168 - #49 x
+INFO  14:08:33,169 - #35 =
+INFO  14:08:33,170 - #49 arg
+INFO  14:08:33,171 - #39 .
+INFO  14:08:33,172 - #49 a
+INFO  14:08:33,172 - #39 .
+INFO  14:08:33,172 - #49 b
+INFO  14:08:33,172 - #39 .
+INFO  14:08:33,172 - #49 c
+INFO  14:08:33,172 - #36 ;
+INFO  14:08:33,182 - #14 do
+INFO  14:08:33,182 - #44 {
+INFO  14:08:33,184 - #49 val
+INFO  14:08:33,185 - #39 .
+INFO  14:08:33,185 - #49 putp
+INFO  14:08:33,185 - #40 (
+INFO  14:08:33,185 - #46 0
+INFO  14:08:33,185 - #38 ,
+INFO  14:08:33,188 - #49 i
+INFO  14:08:33,188 - #41 )
+INFO  14:08:33,189 - #36 ;
+INFO  14:08:33,189 - #49 val
+INFO  14:08:33,190 - #39 .
+INFO  14:08:33,190 - #49 putn
+INFO  14:08:33,190 - #40 (
+INFO  14:08:33,190 - #46 0
+INFO  14:08:33,190 - #38 ,
+INFO  14:08:33,190 - #49 i
+INFO  14:08:33,191 - #41 )
+INFO  14:08:33,191 - #36 ;
+INFO  14:08:33,191 - #45 }
+INFO  14:08:33,191 - #15 while
+INFO  14:08:33,191 - #40 (
+INFO  14:08:33,191 - #49 i
+INFO  14:08:33,192 - #31 <
+INFO  14:08:33,192 - #49 tableSize
+INFO  14:08:33,195 - #38 ,
+INFO  14:08:33,199 - #49 i
+INFO  14:08:33,201 - #25 ++
+INFO  14:08:33,201 - #41 )
+INFO  14:08:33,204 - #36 ;
+INFO  14:08:33,204 - #45 }
+INFO  14:08:33,205 - #45 }
+INFO  14:08:33,210 - Program(
+  ProgramName(
+   prog
+  ) [ProgramName]
+  ProgDeclList(
+    ProgDeclList(
+      ProgDeclList(
+        NoProgDeclList(
+        ) [NoProgDeclList]
+        ConstDeclType(
+          ConstDecl(
+            Type(
+             int
+            ) [Type]
+           tableSize
+            NumConst(
+             10
+            ) [NumConst]
+            ConstDeclarations(
+              ConstDeclarations(
+                NoConstDeclarations(
+                ) [NoConstDeclarations]
+               c
+                NumConst(
+                 3
+                ) [NumConst]
+              ) [ConstDeclarations]
+             d
+              NumConst(
+               5
+              ) [NumConst]
+            ) [ConstDeclarations]
+          ) [ConstDecl]
+        ) [ConstDeclType]
+      ) [ProgDeclList]
+      ConstDeclType(
+        ConstDecl(
+          Type(
+           bool
+          ) [Type]
+         a
+          BoolConst(
+           true
+          ) [BoolConst]
+          ConstDeclarations(
+            NoConstDeclarations(
+            ) [NoConstDeclarations]
+           b
+            BoolConst(
+             false
+            ) [BoolConst]
+          ) [ConstDeclarations]
+        ) [ConstDecl]
+      ) [ConstDeclType]
+    ) [ProgDeclList]
+    ConstDeclType(
+      ConstDecl(
+        Type(
+         char
+        ) [Type]
+       f
+        CharConst(
+         a
+        ) [CharConst]
+        NoConstDeclarations(
+        ) [NoConstDeclarations]
+      ) [ConstDecl]
+    ) [ConstDeclType]
+  ) [ProgDeclList]
+  MethodDeclarations(
+    NoMethodDeclarations(
+    ) [NoMethodDeclarations]
+    MethodDecl(
+      MethodSignature(
+        ReturnVoid(
+        ) [ReturnVoid]
+       fa
+      ) [MethodSignature]
+      Pars(
+        FormParams(
+          Type(
+           char
+          ) [Type]
+         ch
+          NoArray(
+          ) [NoArray]
+          FormParamsMore(
+            FormParsMoreItems(
+              FormParamsMoreItem(
+                Type(
+                 int
+                ) [Type]
+               j
+                NoArray(
+                ) [NoArray]
+              ) [FormParamsMoreItem]
+              FormParsMoreLastItem(
+                Type(
+                 int
+                ) [Type]
+               arg
+                NoArray(
+                ) [NoArray]
+              ) [FormParsMoreLastItem]
+            ) [FormParsMoreItems]
+          ) [FormParamsMore]
+        ) [FormParams]
+      ) [Pars]
+      VarDeclarations(
+        NoVarDeclarations(
+        ) [NoVarDeclarations]
+        VarDeclaration(
+          Type(
+           int
+          ) [Type]
+         x
+          NoArray(
+          ) [NoArray]
+          NoVarDeclarationMore(
+          ) [NoVarDeclarationMore]
+        ) [VarDeclaration]
+      ) [VarDeclarations]
+      Statements(
+        Statements(
+          NoStatements(
+          ) [NoStatements]
+          MatchedStmt(
+            DesignatorStmtt(
+              DesignatorStmt(
+                Designtor(
+                 x
+                  NoDesignators(
+                  ) [NoDesignators]
+                ) [Designtor]
+                Assignement(
+                  Assign(
+                  ) [Assign]
+                  DesignatorExpr(
+                    Expretion(
+                      Term(
+                        DesignatorFactor(
+                          Designtor(
+                           arg
+                            Designators(
+                              Designators(
+                                Designators(
+                                  NoDesignators(
+                                  ) [NoDesignators]
+                                  Dot(
+                                   a
+                                  ) [Dot]
+                                ) [Designators]
+                                Dot(
+                                 b
+                                ) [Dot]
+                              ) [Designators]
+                              Dot(
+                               c
+                              ) [Dot]
+                            ) [Designators]
+                          ) [Designtor]
+                          NoOptionalActParamsParen(
+                          ) [NoOptionalActParamsParen]
+                        ) [DesignatorFactor]
+                        NoFactors(
+                        ) [NoFactors]
+                      ) [Term]
+                      NoTerms(
+                      ) [NoTerms]
+                    ) [Expretion]
+                  ) [DesignatorExpr]
+                ) [Assignement]
+              ) [DesignatorStmt]
+            ) [DesignatorStmtt]
+          ) [MatchedStmt]
+        ) [Statements]
+        MatchedStmt(
+          DoWhile(
+            BeginDoWhile(
+            ) [BeginDoWhile]
+            MatchedStmt(
+              MatchedStatements(
+                Statements(
+                  Statements(
+                    NoStatements(
+                    ) [NoStatements]
+                    MatchedStmt(
+                      DesignatorStmtt(
+                        DesignatorStmt(
+                          Designtor(
+                           val
+                            Designators(
+                              NoDesignators(
+                              ) [NoDesignators]
+                              Dot(
+                               putp
+                              ) [Dot]
+                            ) [Designators]
+                          ) [Designtor]
+                          DesignatorOpts(
+                            Indexing(
+                              IndexingPars(
+                                ActPars(
+                                  Expretion(
+                                    Term(
+                                      NumConstFactor(
+                                       0
+                                      ) [NumConstFactor]
+                                      NoFactors(
+                                      ) [NoFactors]
+                                    ) [Term]
+                                    NoTerms(
+                                    ) [NoTerms]
+                                  ) [Expretion]
+                                  ActParams(
+                                    NoActParams(
+                                    ) [NoActParams]
+                                    Expretion(
+                                      Term(
+                                        DesignatorFactor(
+                                          Designtor(
+                                           i
+                                            NoDesignators(
+                                            ) [NoDesignators]
+                                          ) [Designtor]
+                                          NoOptionalActParamsParen(
+                                          ) [NoOptionalActParamsParen]
+                                        ) [DesignatorFactor]
+                                        NoFactors(
+                                        ) [NoFactors]
+                                      ) [Term]
+                                      NoTerms(
+                                      ) [NoTerms]
+                                    ) [Expretion]
+                                  ) [ActParams]
+                                ) [ActPars]
+                              ) [IndexingPars]
+                            ) [Indexing]
+                          ) [DesignatorOpts]
+                        ) [DesignatorStmt]
+                      ) [DesignatorStmtt]
+                    ) [MatchedStmt]
+                  ) [Statements]
+                  MatchedStmt(
+                    DesignatorStmtt(
+                      DesignatorStmt(
+                        Designtor(
+                         val
+                          Designators(
+                            NoDesignators(
+                            ) [NoDesignators]
+                            Dot(
+                             putn
+                            ) [Dot]
+                          ) [Designators]
+                        ) [Designtor]
+                        DesignatorOpts(
+                          Indexing(
+                            IndexingPars(
+                              ActPars(
+                                Expretion(
+                                  Term(
+                                    NumConstFactor(
+                                     0
+                                    ) [NumConstFactor]
+                                    NoFactors(
+                                    ) [NoFactors]
+                                  ) [Term]
+                                  NoTerms(
+                                  ) [NoTerms]
+                                ) [Expretion]
+                                ActParams(
+                                  NoActParams(
+                                  ) [NoActParams]
+                                  Expretion(
+                                    Term(
+                                      DesignatorFactor(
+                                        Designtor(
+                                         i
+                                          NoDesignators(
+                                          ) [NoDesignators]
+                                        ) [Designtor]
+                                        NoOptionalActParamsParen(
+                                        ) [NoOptionalActParamsParen]
+                                      ) [DesignatorFactor]
+                                      NoFactors(
+                                      ) [NoFactors]
+                                    ) [Term]
+                                    NoTerms(
+                                    ) [NoTerms]
+                                  ) [Expretion]
+                                ) [ActParams]
+                              ) [ActPars]
+                            ) [IndexingPars]
+                          ) [Indexing]
+                        ) [DesignatorOpts]
+                      ) [DesignatorStmt]
+                    ) [DesignatorStmtt]
+                  ) [MatchedStmt]
+                ) [Statements]
+              ) [MatchedStatements]
+            ) [MatchedStmt]
+            DoWhileCond(
+              Condition(
+                ConditionTerm(
+                  CondFact(
+                    Expretion(
+                      Term(
+                        DesignatorFactor(
+                          Designtor(
+                           i
+                            NoDesignators(
+                            ) [NoDesignators]
+                          ) [Designtor]
+                          NoOptionalActParamsParen(
+                          ) [NoOptionalActParamsParen]
+                        ) [DesignatorFactor]
+                        NoFactors(
+                        ) [NoFactors]
+                      ) [Term]
+                      NoTerms(
+                      ) [NoTerms]
+                    ) [Expretion]
+                    Relops(
+                      Lt(
+                      ) [Lt]
+                      Expretion(
+                        Term(
+                          DesignatorFactor(
+                            Designtor(
+                             tableSize
+                              NoDesignators(
+                              ) [NoDesignators]
+                            ) [Designtor]
+                            NoOptionalActParamsParen(
+                            ) [NoOptionalActParamsParen]
+                          ) [DesignatorFactor]
+                          NoFactors(
+                          ) [NoFactors]
+                        ) [Term]
+                        NoTerms(
+                        ) [NoTerms]
+                      ) [Expretion]
+                    ) [Relops]
+                  ) [CondFact]
+                  NoAndConditions(
+                  ) [NoAndConditions]
+                ) [ConditionTerm]
+                NoOrConditions(
+                ) [NoOrConditions]
+              ) [Condition]
+              DoWhileDesignatorStmt(
+                DesignatorStmtDoWhile(
+                  Designtor(
+                   i
+                    NoDesignators(
+                    ) [NoDesignators]
+                  ) [Designtor]
+                  DesignatorOptsDoWhile(
+                    Inc(
+                    ) [Inc]
+                  ) [DesignatorOptsDoWhile]
+                ) [DesignatorStmtDoWhile]
+              ) [DoWhileDesignatorStmt]
+            ) [DoWhileCond]
+          ) [DoWhile]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  14:08:33,211 - ===================================
+INFO  14:08:33,221 - Deklarisana konstanta c i ima vrednost 3 na liniji 22
+INFO  14:08:33,221 - Deklarisana konstanta d i ima vrednost 5 na liniji 22
+INFO  14:08:33,221 - Deklarisana konstanta tableSize i ima vrednost 10 na liniji 3
+INFO  14:08:33,221 - Deklarisana konstanta b i ima vrednost 0 na liniji 15
+INFO  14:08:33,221 - Deklarisana konstanta a i ima vrednost 1 na liniji 4
+INFO  14:08:33,221 - Deklarisana konstanta f i ima vrednost 97 na liniji 5
+INFO  14:08:33,221 - Obradjuje se funkcija fa na liniji 7
+INFO  14:08:33,221 - Deklarisan parametar j na liniji 7
+INFO  14:08:33,221 - Deklarisan parametar arg na liniji 7
+INFO  14:08:33,221 - Deklarisan parametar ch na liniji 7
+INFO  14:08:33,221 - Deklarisana promenljiva x na liniji 8
+INFO  14:08:33,222 - pocinje    ----    0
+INFO  14:08:33,223 - kraj     ----    11
+INFO  14:08:33,223 - ===================================
+INFO  14:08:33,224 - Parsiranje uspesno zavrseno!

@@ -1,0 +1,229 @@
+INFO  14:10:42,067 - Compiling source file: C:\Users\kokan\Konstantin Vuckovic\si\PP1\MJCompiler\MJCompiler\test\program.mj
+INFO  14:10:42,243 - #2 program
+INFO  14:10:42,243 - #49 prog
+INFO  14:10:42,243 - #8 const
+INFO  14:10:42,246 - #49 inta
+INFO  14:10:42,246 - #49 tableSize
+INFO  14:10:42,247 - #35 =
+INFO  14:10:42,247 - #46 10
+INFO  14:10:42,248 - #38 ,
+INFO  14:10:42,249 - #49 c
+INFO  14:10:42,249 - #35 =
+INFO  14:10:42,249 - #46 3
+INFO  14:10:42,249 - #38 ,
+INFO  14:10:42,250 - #49 d
+INFO  14:10:42,250 - #35 =
+INFO  14:10:42,250 - #46 5
+INFO  14:10:42,250 - #36 ;
+INFO  14:10:42,250 - #8 const
+INFO  14:10:42,252 - #49 bool
+INFO  14:10:42,252 - #49 a
+INFO  14:10:42,252 - #35 =
+INFO  14:10:42,252 - #47 true
+INFO  14:10:42,255 - #38 ,
+INFO  14:10:42,256 - #49 b
+INFO  14:10:42,256 - #35 =
+INFO  14:10:42,256 - #47 false
+INFO  14:10:42,256 - #36 ;
+INFO  14:10:42,256 - #8 const
+INFO  14:10:42,256 - #49 char
+INFO  14:10:42,256 - #49 f
+INFO  14:10:42,256 - #35 =
+INFO  14:10:42,257 - #48 a
+INFO  14:10:42,257 - #36 ;
+INFO  14:10:42,257 - #44 {
+INFO  14:10:42,257 - #12 void
+INFO  14:10:42,258 - #49 f
+INFO  14:10:42,260 - #40 (
+INFO  14:10:42,262 - #49 char
+INFO  14:10:42,262 - #49 ch
+INFO  14:10:42,262 - #38 ,
+INFO  14:10:42,264 - #49 int
+INFO  14:10:42,264 - #49 a
+INFO  14:10:42,264 - #38 ,
+INFO  14:10:42,264 - #49 int
+INFO  14:10:42,265 - #49 arg
+INFO  14:10:42,265 - #41 )
+INFO  14:10:42,265 - #49 int
+INFO  14:10:42,267 - #49 x
+INFO  14:10:42,267 - #36 ;
+INFO  14:10:42,267 - #44 {
+INFO  14:10:42,269 - #49 x
+INFO  14:10:42,270 - #35 =
+INFO  14:10:42,271 - #49 arg
+INFO  14:10:42,274 - #36 ;
+INFO  14:10:42,286 - #45 }
+INFO  14:10:42,286 - #45 }
+INFO  14:10:42,290 - Program(
+  ProgramName(
+   prog
+  ) [ProgramName]
+  ProgDeclList(
+    ProgDeclList(
+      ProgDeclList(
+        NoProgDeclList(
+        ) [NoProgDeclList]
+        ConstDeclType(
+          ConstDecl(
+            Type(
+             inta
+            ) [Type]
+           tableSize
+            NumConst(
+             10
+            ) [NumConst]
+            ConstDeclarations(
+              ConstDeclarations(
+                NoConstDeclarations(
+                ) [NoConstDeclarations]
+               c
+                NumConst(
+                 3
+                ) [NumConst]
+              ) [ConstDeclarations]
+             d
+              NumConst(
+               5
+              ) [NumConst]
+            ) [ConstDeclarations]
+          ) [ConstDecl]
+        ) [ConstDeclType]
+      ) [ProgDeclList]
+      ConstDeclType(
+        ConstDecl(
+          Type(
+           bool
+          ) [Type]
+         a
+          BoolConst(
+           true
+          ) [BoolConst]
+          ConstDeclarations(
+            NoConstDeclarations(
+            ) [NoConstDeclarations]
+           b
+            BoolConst(
+             false
+            ) [BoolConst]
+          ) [ConstDeclarations]
+        ) [ConstDecl]
+      ) [ConstDeclType]
+    ) [ProgDeclList]
+    ConstDeclType(
+      ConstDecl(
+        Type(
+         char
+        ) [Type]
+       f
+        CharConst(
+         a
+        ) [CharConst]
+        NoConstDeclarations(
+        ) [NoConstDeclarations]
+      ) [ConstDecl]
+    ) [ConstDeclType]
+  ) [ProgDeclList]
+  MethodDeclarations(
+    NoMethodDeclarations(
+    ) [NoMethodDeclarations]
+    MethodDecl(
+      MethodeSignature(
+        ReturnVoid(
+        ) [ReturnVoid]
+       f
+        Pars(
+          FormParams(
+            Type(
+             char
+            ) [Type]
+           ch
+            NoArray(
+            ) [NoArray]
+            FormParamsMore(
+              FormParsMoreItems(
+                FormParamsMoreItem(
+                  Type(
+                   int
+                  ) [Type]
+                 a
+                  NoArray(
+                  ) [NoArray]
+                ) [FormParamsMoreItem]
+                FormParsMoreLastItem(
+                  Type(
+                   int
+                  ) [Type]
+                 arg
+                  NoArray(
+                  ) [NoArray]
+                ) [FormParsMoreLastItem]
+              ) [FormParsMoreItems]
+            ) [FormParamsMore]
+          ) [FormParams]
+        ) [Pars]
+      ) [MethodeSignature]
+      VarDeclarations(
+        NoVarDeclarations(
+        ) [NoVarDeclarations]
+        VarDeclaration(
+          Type(
+           int
+          ) [Type]
+         x
+          NoArray(
+          ) [NoArray]
+          NoVarDeclarationMore(
+          ) [NoVarDeclarationMore]
+        ) [VarDeclaration]
+      ) [VarDeclarations]
+      Statements(
+        NoStatements(
+        ) [NoStatements]
+        MatchedStmt(
+          DesignatorStmtt(
+            DesignatorStmt(
+              Designtor(
+               x
+                NoDesignators(
+                ) [NoDesignators]
+              ) [Designtor]
+              Assignement(
+                Assign(
+                ) [Assign]
+                DesignatorExpr(
+                  Expretion(
+                    Term(
+                      DesignatorFactor(
+                        Designtor(
+                         arg
+                          NoDesignators(
+                          ) [NoDesignators]
+                        ) [Designtor]
+                        NoOptionalActParamsParen(
+                        ) [NoOptionalActParamsParen]
+                      ) [DesignatorFactor]
+                      NoFactors(
+                      ) [NoFactors]
+                    ) [Term]
+                    NoTerms(
+                    ) [NoTerms]
+                  ) [Expretion]
+                ) [DesignatorExpr]
+              ) [Assignement]
+            ) [DesignatorStmt]
+          ) [DesignatorStmtt]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  14:10:42,290 - ===================================
+ERROR 14:10:42,299 - Greska na liniji 3: Nije pronadjen tip inta u tabeli simbola! 
+ERROR 14:10:42,299 - Greska na liniji 23: Konstanta cnije kompatibilna sa zadatim tipom!
+ERROR 14:10:42,299 - Greska na liniji 23: Konstanta dnije kompatibilna sa zadatim tipom!
+ERROR 14:10:42,299 - Greska na liniji 3: Konstanta tableSizenije kompatibilna sa zadatim tipom!
+INFO  14:10:42,299 - Deklarisana konstanta b i ima vrednost 0 na liniji 15
+INFO  14:10:42,299 - Deklarisana konstanta a i ima vrednost 1 na liniji 4
+INFO  14:10:42,299 - Deklarisana konstanta f i ima vrednost 97 na liniji 5
+INFO  14:10:42,300 - ===================================
+ERROR 14:10:42,301 - Parsiranje NIJE uspesno zavrseno!
