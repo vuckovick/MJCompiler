@@ -1,9 +1,9 @@
-INFO  12:29:49,606 - Compiling source file: C:\Users\kokan\Desktop\projPP1\test\program.mj
-INFO  12:29:49,606 - =====================================================================
-INFO  12:29:49,607 - ========================= SINTAKSNA ANALIZA =========================
-INFO  12:29:49,607 - =====================================================================
-INFO  12:29:49,881 - ========================= SINTAKSNO STABLO =========================
-INFO  12:29:49,883 - Program(
+INFO  15:16:11,054 - Compiling source file: C:\Users\kokan\Desktop\MJCompiler\test\program.mj
+INFO  15:16:11,055 - =====================================================================
+INFO  15:16:11,055 - ========================= SINTAKSNA ANALIZA =========================
+INFO  15:16:11,055 - =====================================================================
+INFO  15:16:11,156 - ========================= SINTAKSNO STABLO =========================
+INFO  15:16:11,157 - Program(
   ProgramName(
    prog
   ) [ProgramName]
@@ -69,17 +69,24 @@ INFO  12:29:49,883 - Program(
              int
             ) [Type]
             VarListMore(
-              VarListEnd(
+              VarListMore(
+                VarListEnd(
+                  VarItem(
+                   a
+                    NoArray(
+                    ) [NoArray]
+                  ) [VarItem]
+                ) [VarListEnd]
                 VarItem(
-                 a
+                 b
                   NoArray(
                   ) [NoArray]
                 ) [VarItem]
-              ) [VarListEnd]
+              ) [VarListMore]
               VarItem(
-               b
-                NoArray(
-                ) [NoArray]
+               c
+                Array(
+                ) [Array]
               ) [VarItem]
             ) [VarListMore]
           ) [VarDeclaration]
@@ -90,7 +97,7 @@ INFO  12:29:49,883 - Program(
           ) [Type]
           VarListEnd(
             VarItem(
-             car
+             carr
               Array(
               ) [Array]
             ) [VarItem]
@@ -98,8 +105,75 @@ INFO  12:29:49,883 - Program(
         ) [VarDeclaration]
       ) [VarDeclarations]
       Statements(
-        NoStatements(
-        ) [NoStatements]
+        Statements(
+          Statements(
+            NoStatements(
+            ) [NoStatements]
+            MatchedStmt(
+              DesignatorStmtt(
+                Assignement(
+                  DesignatorVar(
+                   c
+                  ) [DesignatorVar]
+                  Assign(
+                  ) [Assign]
+                  DesignatorExpr(
+                    Expretion(
+                      AddTerm(
+                        Term(
+                          TermFactor(
+                            NoUnaryFactor(
+                              NewFactor(
+                                Type(
+                                 int
+                                ) [Type]
+                                Expretion(
+                                  AddTerm(
+                                    Term(
+                                      TermFactor(
+                                        NoUnaryFactor(
+                                          NumConstFactor(
+                                           3
+                                          ) [NumConstFactor]
+                                        ) [NoUnaryFactor]
+                                      ) [TermFactor]
+                                    ) [Term]
+                                  ) [AddTerm]
+                                ) [Expretion]
+                              ) [NewFactor]
+                            ) [NoUnaryFactor]
+                          ) [TermFactor]
+                        ) [Term]
+                      ) [AddTerm]
+                    ) [Expretion]
+                  ) [DesignatorExpr]
+                ) [Assignement]
+              ) [DesignatorStmtt]
+            ) [MatchedStmt]
+          ) [Statements]
+          MatchedStmt(
+            Read(
+              DesignatorArr(
+                DesignatorIdent(
+                 c
+                ) [DesignatorIdent]
+                Expretion(
+                  AddTerm(
+                    Term(
+                      TermFactor(
+                        NoUnaryFactor(
+                          NumConstFactor(
+                           1
+                          ) [NumConstFactor]
+                        ) [NoUnaryFactor]
+                      ) [TermFactor]
+                    ) [Term]
+                  ) [AddTerm]
+                ) [Expretion]
+              ) [DesignatorArr]
+            ) [Read]
+          ) [MatchedStmt]
+        ) [Statements]
         MatchedStmt(
           Print(
             Expretion(
@@ -107,25 +181,46 @@ INFO  12:29:49,883 - Program(
                 Term(
                   TermFactor(
                     NoUnaryFactor(
-                      NumConstFactor(
-                       1
-                      ) [NumConstFactor]
+                      DesignatorFactor(
+                        DesignatorArr(
+                          DesignatorIdent(
+                           c
+                          ) [DesignatorIdent]
+                          Expretion(
+                            AddTerm(
+                              Term(
+                                TermFactor(
+                                  NoUnaryFactor(
+                                    NumConstFactor(
+                                     1
+                                    ) [NumConstFactor]
+                                  ) [NoUnaryFactor]
+                                ) [TermFactor]
+                              ) [Term]
+                            ) [AddTerm]
+                          ) [Expretion]
+                        ) [DesignatorArr]
+                      ) [DesignatorFactor]
                     ) [NoUnaryFactor]
                   ) [TermFactor]
                 ) [Term]
               ) [AddTerm]
             ) [Expretion]
-            NoPrintNumConst(
-            ) [NoPrintNumConst]
+            PrintNumConst(
+             2
+            ) [PrintNumConst]
           ) [Print]
         ) [MatchedStmt]
       ) [Statements]
     ) [MethodDecl]
   ) [MethodDeclarations]
 ) [Program]
-INFO  12:29:49,886 - =====================================================================
-INFO  12:29:49,886 - ========================= SEMANTICKA ANALIZA =========================
-INFO  12:29:49,886 - =====================================================================
-INFO  12:29:49,907 - true
-INFO  12:29:49,909 - true
-INFO  12:29:49,934 - Generisanje uspesno zavrseno!
+INFO  15:16:11,159 - =====================================================================
+INFO  15:16:11,160 - ========================= SEMANTICKA ANALIZA =========================
+INFO  15:16:11,160 - =====================================================================
+INFO  15:16:11,165 - Koriscena lokalna promenljiva na liniji 7   : [ Var int[] c, 2, 1 ]
+INFO  15:16:11,166 - Pristup elementu lokalnog  niza na liniji 8 : [ Elem int c[], 2, 1 ]
+INFO  15:16:11,166 - Pristup elementu lokalnog  niza na liniji 9 : [ Elem int c[], 2, 1 ]
+INFO  15:16:11,166 - true
+INFO  15:16:11,166 - true
+INFO  15:16:11,177 - Generisanje uspesno zavrseno!
