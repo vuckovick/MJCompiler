@@ -112,7 +112,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramName, Program, MethodSign
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Consts, MethodType;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, FactorOpt, FactorList, Term, TermList, Expr;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct DesignatorOrExpr, DesignatorOpt, OptionalExpr;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondTermList, CondFactList, CondFact, OptionalRelop;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondTermList, CondFactList, CondFact;
 
 Program     ::= (Program) PROG ProgramName:p DeclList:D1 LBRACE MethodDeclList:M2 RBRACE {: RESULT=new Program(p, D1, M2); RESULT.setLine(pleft); :};
 ProgramName ::= (ProgramName) IDENT:progName {: RESULT=new ProgramName(progName); RESULT.setLine(progNameleft); :};
@@ -242,9 +242,8 @@ CondTerm    ::= (ConditionTerm) CondFactList:C1 {: RESULT=new ConditionTerm(C1);
 CondFactList    ::= (ConditionFacts) CondFact:C1 {: RESULT=new ConditionFacts(C1); RESULT.setLine(C1left); :}
                   | (AndConditions) CondFactList:C1 AND CondFact:C2 {: RESULT=new AndConditions(C1, C2); RESULT.setLine(C1left); :};
 
-CondFact    ::= (CondFact) OptionalRelop:O1 {: RESULT=new CondFact(O1); RESULT.setLine(O1left); :};
-OptionalRelop   ::= (NoRelops) Expr:E1 {: RESULT=new NoRelops(E1); RESULT.setLine(E1left); :}
-                  | (Relops) Expr:exprL Relop:R1 Expr:epxrR {: RESULT=new Relops(exprL, R1, epxrR); RESULT.setLine(exprLleft); :};
+CondFact   ::= (NoRelops) Expr:E1 {: RESULT=new NoRelops(E1); RESULT.setLine(E1left); :}
+              | (Relops) Expr:exprL Relop:R1 Expr:epxrR {: RESULT=new Relops(exprL, R1, epxrR); RESULT.setLine(exprLleft); :};
 
 
 

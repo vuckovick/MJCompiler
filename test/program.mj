@@ -3,10 +3,19 @@ program prog
 const int pi = 3;
 int x, y[];
 {
+    void ispis() {
+        print(1);
+    }
+
+    int f() { return 2; }
+
     void main() int a, b, c[]; char carr[];{
-        c = new int[3];
-        read(c[1]);
-        print(c[1], 2);
+
+        f(); f(); f();
+        a = f() + 3;
+
+        print(a);
+
     }
 
 }

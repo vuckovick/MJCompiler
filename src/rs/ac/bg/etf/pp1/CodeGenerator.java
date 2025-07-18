@@ -6,8 +6,28 @@ import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
 
+import java.util.Stack;
+
 public class CodeGenerator extends VisitorAdaptor {
-    private int mainPc;
+    private int mainPc, skipThen;
+    private Stack<Integer> skipCondFact = new Stack<>();
+    private Stack<Integer> skipCondition = new Stack<>();
+
+    private int getRelopCode(Relop relop) {
+        if(relop instanceof Eq)
+            return  Code.eq;
+        if(relop instanceof Ne)
+            return  Code.ne;
+        if(relop instanceof Gt)
+            return  Code.gt;
+        if(relop instanceof Lt)
+            return  Code.lt;
+        if(relop instanceof Ge)
+            return  Code.ge;
+        if(relop instanceof Le)
+            return  Code.le;
+        return 0;
+    }
 
     public int getMainPc() {
         return mainPc;
@@ -31,10 +51,55 @@ public class CodeGenerator extends VisitorAdaptor {
         Code.put(Code.return_);
     }
 
+////////////  Condition  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void visit(NoRelops noRelops) {
+        Code.loadConst(0);
+        Code.putFalseJump(Code.ne, 0); // netacna
+        skipCondFact.push(Code.pc - 2);
+        // tacna
+    }
+
+    public void visit(Relops relops) {
+        Code.putFalseJump(getRelopCode(relops.getRelop()), 0); // netacna
+        skipCondFact.push(Code.pc - 2);
+        // tacna
+    }
+
+    public void visit(CondTerm condTerm){
+        // tacne
+        Code.putJump(0 ); // tacne bacamo na THEN
+        skipCondFact.push(Code.pc - 2);
+        // ovde vracamo netacne
+        while(!skipCondFact.empty()){
+            Code.fixup(skipCondFact.pop());
+        }
+    }
+
+    public void visit(Condition condition){
+        // netacni
+        Code.putJump(0); // netacne bacamo na else
+        skipThen = Code.pc - 2;
+        // then
+        while(!skipCondition.empty()){
+            Code.fixup(skipCondition.pop());
+        }
+    }
+
 ////////////  Designator  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void visit(Assignement assignment) {
         Code.store(assignment.getDesignator().obj);
+    }
+
+    public void visit(FunctionCall functionCall) {
+        int offset = functionCall.getDesignator().obj.getAdr() - Code.pc;
+        Code.put(Code.call);
+        Code.put2(offset);
+
+        if(functionCall.getDesignator().obj.getType() != Tab.noType){
+            Code.put(Code.pop);
+        }
     }
 
     public void visit(Inc inc){
@@ -90,6 +155,12 @@ public class CodeGenerator extends VisitorAdaptor {
 
     public void visit(DesignatorIdent designatorIdent) {
         Code.load(designatorIdent.obj);
+    }
+
+    public void visit(DesignatorMethFactor designatorMethFactor) {
+        int offset = designatorMethFactor.getDesignator().obj.getAdr() - Code.pc;
+        Code.put(Code.call);
+        Code.put2(offset);
     }
 
     public void visit(NumConstFactor numConstFactor){

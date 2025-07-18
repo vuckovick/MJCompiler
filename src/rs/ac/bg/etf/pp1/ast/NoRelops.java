@@ -1,11 +1,11 @@
 // generated with ast extension for cup
 // version 0.8
-// 17/6/2025 12:29:1
+// 18/6/2025 15:55:44
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class NoRelops extends OptionalRelop {
+public class NoRelops extends CondFact {
 
     private Expr Expr;
 

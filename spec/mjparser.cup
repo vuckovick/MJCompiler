@@ -82,7 +82,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramName, Program, MethodSign
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Consts, MethodType;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, FactorOpt, FactorList, Term, TermList, Expr;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct DesignatorOrExpr, DesignatorOpt, OptionalExpr;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondTermList, CondFactList, CondFact, OptionalRelop;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondTermList, CondFactList, CondFact;
 
 Program     ::= (Program) PROG ProgramName:p DeclList LBRACE MethodDeclList RBRACE;
 ProgramName ::= (ProgramName) IDENT:progName;
@@ -212,9 +212,8 @@ CondTerm    ::= (ConditionTerm) CondFactList;
 CondFactList    ::= (ConditionFacts) CondFact
                   | (AndConditions) CondFactList AND CondFact;
 
-CondFact    ::= (CondFact) OptionalRelop;
-OptionalRelop   ::= (NoRelops) Expr
-                  | (Relops) Expr:exprL Relop Expr:epxrR;
+CondFact   ::= (NoRelops) Expr
+              | (Relops) Expr:exprL Relop Expr:epxrR;
 
 
 

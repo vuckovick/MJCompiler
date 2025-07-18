@@ -1,9 +1,9 @@
-INFO  15:16:11,054 - Compiling source file: C:\Users\kokan\Desktop\MJCompiler\test\program.mj
-INFO  15:16:11,055 - =====================================================================
-INFO  15:16:11,055 - ========================= SINTAKSNA ANALIZA =========================
-INFO  15:16:11,055 - =====================================================================
-INFO  15:16:11,156 - ========================= SINTAKSNO STABLO =========================
-INFO  15:16:11,157 - Program(
+INFO  19:00:08,017 - Compiling source file: C:\Users\kokan\Desktop\MJCompiler\test\program.mj
+INFO  19:00:08,018 - =====================================================================
+INFO  19:00:08,018 - ========================= SINTAKSNA ANALIZA =========================
+INFO  19:00:08,018 - =====================================================================
+INFO  19:00:08,328 - ========================= SINTAKSNO STABLO =========================
+INFO  19:00:08,329 - Program(
   ProgramName(
    prog
   ) [ProgramName]
@@ -50,8 +50,83 @@ INFO  15:16:11,157 - Program(
     ) [VarDeclType]
   ) [ProgDeclList]
   MethodDeclarations(
-    NoMethodDeclarations(
-    ) [NoMethodDeclarations]
+    MethodDeclarations(
+      MethodDeclarations(
+        NoMethodDeclarations(
+        ) [NoMethodDeclarations]
+        MethodDecl(
+          MethodSignature(
+            ReturnVoid(
+            ) [ReturnVoid]
+           ispis
+          ) [MethodSignature]
+          NoPars(
+          ) [NoPars]
+          NoVarDeclarations(
+          ) [NoVarDeclarations]
+          Statements(
+            NoStatements(
+            ) [NoStatements]
+            MatchedStmt(
+              Print(
+                Expretion(
+                  AddTerm(
+                    Term(
+                      TermFactor(
+                        NoUnaryFactor(
+                          NumConstFactor(
+                           1
+                          ) [NumConstFactor]
+                        ) [NoUnaryFactor]
+                      ) [TermFactor]
+                    ) [Term]
+                  ) [AddTerm]
+                ) [Expretion]
+                NoPrintNumConst(
+                ) [NoPrintNumConst]
+              ) [Print]
+            ) [MatchedStmt]
+          ) [Statements]
+        ) [MethodDecl]
+      ) [MethodDeclarations]
+      MethodDecl(
+        MethodSignature(
+          ReturnType(
+            Type(
+             int
+            ) [Type]
+          ) [ReturnType]
+         f
+        ) [MethodSignature]
+        NoPars(
+        ) [NoPars]
+        NoVarDeclarations(
+        ) [NoVarDeclarations]
+        Statements(
+          NoStatements(
+          ) [NoStatements]
+          MatchedStmt(
+            Return(
+              ReturnExpr(
+                Expretion(
+                  AddTerm(
+                    Term(
+                      TermFactor(
+                        NoUnaryFactor(
+                          NumConstFactor(
+                           2
+                          ) [NumConstFactor]
+                        ) [NoUnaryFactor]
+                      ) [TermFactor]
+                    ) [Term]
+                  ) [AddTerm]
+                ) [Expretion]
+              ) [ReturnExpr]
+            ) [Return]
+          ) [MatchedStmt]
+        ) [Statements]
+      ) [MethodDecl]
+    ) [MethodDeclarations]
     MethodDecl(
       MethodSignature(
         ReturnVoid(
@@ -107,71 +182,94 @@ INFO  15:16:11,157 - Program(
       Statements(
         Statements(
           Statements(
-            NoStatements(
-            ) [NoStatements]
+            Statements(
+              Statements(
+                NoStatements(
+                ) [NoStatements]
+                MatchedStmt(
+                  DesignatorStmtt(
+                    DesignatorStmt(
+                      FunctionCall(
+                        DesignatorVar(
+                         f
+                        ) [DesignatorVar]
+                        NoFuncPars(
+                        ) [NoFuncPars]
+                      ) [FunctionCall]
+                    ) [DesignatorStmt]
+                  ) [DesignatorStmtt]
+                ) [MatchedStmt]
+              ) [Statements]
+              MatchedStmt(
+                DesignatorStmtt(
+                  DesignatorStmt(
+                    FunctionCall(
+                      DesignatorVar(
+                       f
+                      ) [DesignatorVar]
+                      NoFuncPars(
+                      ) [NoFuncPars]
+                    ) [FunctionCall]
+                  ) [DesignatorStmt]
+                ) [DesignatorStmtt]
+              ) [MatchedStmt]
+            ) [Statements]
             MatchedStmt(
               DesignatorStmtt(
-                Assignement(
-                  DesignatorVar(
-                   c
-                  ) [DesignatorVar]
-                  Assign(
-                  ) [Assign]
-                  DesignatorExpr(
-                    Expretion(
-                      AddTerm(
-                        Term(
-                          TermFactor(
-                            NoUnaryFactor(
-                              NewFactor(
-                                Type(
-                                 int
-                                ) [Type]
-                                Expretion(
-                                  AddTerm(
-                                    Term(
-                                      TermFactor(
-                                        NoUnaryFactor(
-                                          NumConstFactor(
-                                           3
-                                          ) [NumConstFactor]
-                                        ) [NoUnaryFactor]
-                                      ) [TermFactor]
-                                    ) [Term]
-                                  ) [AddTerm]
-                                ) [Expretion]
-                              ) [NewFactor]
-                            ) [NoUnaryFactor]
-                          ) [TermFactor]
-                        ) [Term]
-                      ) [AddTerm]
-                    ) [Expretion]
-                  ) [DesignatorExpr]
-                ) [Assignement]
+                DesignatorStmt(
+                  FunctionCall(
+                    DesignatorVar(
+                     f
+                    ) [DesignatorVar]
+                    NoFuncPars(
+                    ) [NoFuncPars]
+                  ) [FunctionCall]
+                ) [DesignatorStmt]
               ) [DesignatorStmtt]
             ) [MatchedStmt]
           ) [Statements]
           MatchedStmt(
-            Read(
-              DesignatorArr(
-                DesignatorIdent(
-                 c
-                ) [DesignatorIdent]
-                Expretion(
-                  AddTerm(
-                    Term(
-                      TermFactor(
-                        NoUnaryFactor(
-                          NumConstFactor(
-                           1
-                          ) [NumConstFactor]
-                        ) [NoUnaryFactor]
-                      ) [TermFactor]
-                    ) [Term]
-                  ) [AddTerm]
-                ) [Expretion]
-              ) [DesignatorArr]
-            ) [Read]
+            DesignatorStmtt(
+              Assignement(
+                DesignatorVar(
+                 a
+                ) [DesignatorVar]
+                Assign(
+                ) [Assign]
+                DesignatorExpr(
+                  Expretion(
+                    AddTerms(
+                      AddTerm(
+                        Term(
+                          TermFactor(
+                            NoUnaryFactor(
+                              DesignatorMethFactor(
+                                DesignatorVar(
+                                 f
+                                ) [DesignatorVar]
+                                NoFuncPars(
+                                ) [NoFuncPars]
+                              ) [DesignatorMethFactor]
+                            ) [NoUnaryFactor]
+                          ) [TermFactor]
+                        ) [Term]
+                      ) [AddTerm]
+                      Plus(
+                      ) [Plus]
+                      Term(
+                        TermFactor(
+                          NoUnaryFactor(
+                            NumConstFactor(
+                             3
+                            ) [NumConstFactor]
+                          ) [NoUnaryFactor]
+                        ) [TermFactor]
+                      ) [Term]
+                    ) [AddTerms]
+                  ) [Expretion]
+                ) [DesignatorExpr]
+              ) [Assignement]
+            ) [DesignatorStmtt]
           ) [MatchedStmt]
         ) [Statements]
         MatchedStmt(
@@ -182,45 +280,32 @@ INFO  15:16:11,157 - Program(
                   TermFactor(
                     NoUnaryFactor(
                       DesignatorFactor(
-                        DesignatorArr(
-                          DesignatorIdent(
-                           c
-                          ) [DesignatorIdent]
-                          Expretion(
-                            AddTerm(
-                              Term(
-                                TermFactor(
-                                  NoUnaryFactor(
-                                    NumConstFactor(
-                                     1
-                                    ) [NumConstFactor]
-                                  ) [NoUnaryFactor]
-                                ) [TermFactor]
-                              ) [Term]
-                            ) [AddTerm]
-                          ) [Expretion]
-                        ) [DesignatorArr]
+                        DesignatorVar(
+                         a
+                        ) [DesignatorVar]
                       ) [DesignatorFactor]
                     ) [NoUnaryFactor]
                   ) [TermFactor]
                 ) [Term]
               ) [AddTerm]
             ) [Expretion]
-            PrintNumConst(
-             2
-            ) [PrintNumConst]
+            NoPrintNumConst(
+            ) [NoPrintNumConst]
           ) [Print]
         ) [MatchedStmt]
       ) [Statements]
     ) [MethodDecl]
   ) [MethodDeclarations]
 ) [Program]
-INFO  15:16:11,159 - =====================================================================
-INFO  15:16:11,160 - ========================= SEMANTICKA ANALIZA =========================
-INFO  15:16:11,160 - =====================================================================
-INFO  15:16:11,165 - Koriscena lokalna promenljiva na liniji 7   : [ Var int[] c, 2, 1 ]
-INFO  15:16:11,166 - Pristup elementu lokalnog  niza na liniji 8 : [ Elem int c[], 2, 1 ]
-INFO  15:16:11,166 - Pristup elementu lokalnog  niza na liniji 9 : [ Elem int c[], 2, 1 ]
-INFO  15:16:11,166 - true
-INFO  15:16:11,166 - true
-INFO  15:16:11,177 - Generisanje uspesno zavrseno!
+INFO  19:00:08,330 - =====================================================================
+INFO  19:00:08,330 - ========================= SEMANTICKA ANALIZA =========================
+INFO  19:00:08,330 - =====================================================================
+INFO  19:00:08,347 - Poziv funkcije na liniji 14                  : [ Meth int f(), 0, 0 ]
+INFO  19:00:08,347 - Poziv funkcije na liniji 14                  : [ Meth int f(), 0, 0 ]
+INFO  19:00:08,347 - Poziv funkcije na liniji 14                  : [ Meth int f(), 0, 0 ]
+INFO  19:00:08,347 - Koriscena lokalna promenljiva na liniji 15   : [ Var int a, 0, 1 ]
+INFO  19:00:08,347 - Poziv funkcije na liniji 15                  : [ Meth int f(), 0, 0 ]
+INFO  19:00:08,347 - Koriscena lokalna promenljiva na liniji 17   : [ Var int a, 0, 1 ]
+INFO  19:00:08,348 - true
+INFO  19:00:08,349 - true
+INFO  19:00:08,375 - Generisanje uspesno zavrseno!

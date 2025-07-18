@@ -755,10 +755,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         }
     }
 
-    public void visit(CondFact condFact){
-        condFact.struct = condFact.getOptionalRelop().struct;
-    }
-
     public void visit(ConditionFacts conditionFacts){
         conditionFacts.struct = conditionFacts.getCondFact().struct;
     }
