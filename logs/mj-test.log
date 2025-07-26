@@ -1,31 +1,47 @@
-INFO  19:00:08,017 - Compiling source file: C:\Users\kokan\Desktop\MJCompiler\test\program.mj
-INFO  19:00:08,018 - =====================================================================
-INFO  19:00:08,018 - ========================= SINTAKSNA ANALIZA =========================
-INFO  19:00:08,018 - =====================================================================
-INFO  19:00:08,328 - ========================= SINTAKSNO STABLO =========================
-INFO  19:00:08,329 - Program(
+INFO  18:47:38,077 - Compiling source file: C:\Users\kokan\Desktop\MJCompiler\test\program.mj
+INFO  18:47:38,077 - =====================================================================
+INFO  18:47:38,077 - ========================= SINTAKSNA ANALIZA =========================
+INFO  18:47:38,077 - =====================================================================
+INFO  18:47:38,197 - ========================= SINTAKSNO STABLO =========================
+INFO  18:47:38,201 - Program(
   ProgramName(
    prog
   ) [ProgramName]
   ProgDeclList(
     ProgDeclList(
-      NoProgDeclList(
-      ) [NoProgDeclList]
-      ConstDeclType(
-        ConstDecl(
+      ProgDeclList(
+        NoProgDeclList(
+        ) [NoProgDeclList]
+        ConstDeclType(
+          ConstDecl(
+            Type(
+             int
+            ) [Type]
+            ConstDeclaration(
+              ConstItem(
+               pi
+                NumConst(
+                 3
+                ) [NumConst]
+              ) [ConstItem]
+            ) [ConstDeclaration]
+          ) [ConstDecl]
+        ) [ConstDeclType]
+      ) [ProgDeclList]
+      VarDeclType(
+        GlobalVarDecl(
           Type(
-           int
+           set
           ) [Type]
-          ConstDeclaration(
-            ConstItem(
-             pi
-              NumConst(
-               3
-              ) [NumConst]
-            ) [ConstItem]
-          ) [ConstDeclaration]
-        ) [ConstDecl]
-      ) [ConstDeclType]
+          GlobalVarListEnd(
+            GlobalVar(
+             s
+              NoArray(
+              ) [NoArray]
+            ) [GlobalVar]
+          ) [GlobalVarListEnd]
+        ) [GlobalVarDecl]
+      ) [VarDeclType]
     ) [ProgDeclList]
     VarDeclType(
       GlobalVarDecl(
@@ -67,25 +83,23 @@ INFO  19:00:08,329 - Program(
           Statements(
             NoStatements(
             ) [NoStatements]
-            MatchedStmt(
-              Print(
-                Expretion(
-                  AddTerm(
-                    Term(
-                      TermFactor(
-                        NoUnaryFactor(
-                          NumConstFactor(
-                           1
-                          ) [NumConstFactor]
-                        ) [NoUnaryFactor]
-                      ) [TermFactor]
-                    ) [Term]
-                  ) [AddTerm]
-                ) [Expretion]
-                NoPrintNumConst(
-                ) [NoPrintNumConst]
-              ) [Print]
-            ) [MatchedStmt]
+            Print(
+              Expretion(
+                AddTerm(
+                  Term(
+                    TermFactor(
+                      NoUnaryFactor(
+                        NumConstFactor(
+                         1
+                        ) [NumConstFactor]
+                      ) [NoUnaryFactor]
+                    ) [TermFactor]
+                  ) [Term]
+                ) [AddTerm]
+              ) [Expretion]
+              NoPrintNumConst(
+              ) [NoPrintNumConst]
+            ) [Print]
           ) [Statements]
         ) [MethodDecl]
       ) [MethodDeclarations]
@@ -105,25 +119,23 @@ INFO  19:00:08,329 - Program(
         Statements(
           NoStatements(
           ) [NoStatements]
-          MatchedStmt(
-            Return(
-              ReturnExpr(
-                Expretion(
-                  AddTerm(
-                    Term(
-                      TermFactor(
-                        NoUnaryFactor(
-                          NumConstFactor(
-                           2
-                          ) [NumConstFactor]
-                        ) [NoUnaryFactor]
-                      ) [TermFactor]
-                    ) [Term]
-                  ) [AddTerm]
-                ) [Expretion]
-              ) [ReturnExpr]
-            ) [Return]
-          ) [MatchedStmt]
+          Return(
+            ReturnExpr(
+              Expretion(
+                AddTerm(
+                  Term(
+                    TermFactor(
+                      NoUnaryFactor(
+                        NumConstFactor(
+                         2
+                        ) [NumConstFactor]
+                      ) [NoUnaryFactor]
+                    ) [TermFactor]
+                  ) [Term]
+                ) [AddTerm]
+              ) [Expretion]
+            ) [ReturnExpr]
+          ) [Return]
         ) [Statements]
       ) [MethodDecl]
     ) [MethodDeclarations]
@@ -137,46 +149,74 @@ INFO  19:00:08,329 - Program(
       ) [NoPars]
       VarDeclarations(
         VarDeclarations(
-          NoVarDeclarations(
-          ) [NoVarDeclarations]
-          VarDeclaration(
-            Type(
-             int
-            ) [Type]
-            VarListMore(
+          VarDeclarations(
+            NoVarDeclarations(
+            ) [NoVarDeclarations]
+            VarDeclaration(
+              Type(
+               int
+              ) [Type]
               VarListMore(
-                VarListEnd(
+                VarListMore(
+                  VarListMore(
+                    VarListEnd(
+                      VarItem(
+                       a
+                        NoArray(
+                        ) [NoArray]
+                      ) [VarItem]
+                    ) [VarListEnd]
+                    VarItem(
+                     j
+                      NoArray(
+                      ) [NoArray]
+                    ) [VarItem]
+                  ) [VarListMore]
                   VarItem(
-                   a
+                   i
                     NoArray(
                     ) [NoArray]
                   ) [VarItem]
-                ) [VarListEnd]
+                ) [VarListMore]
                 VarItem(
-                 b
-                  NoArray(
-                  ) [NoArray]
+                 c
+                  Array(
+                  ) [Array]
                 ) [VarItem]
               ) [VarListMore]
+            ) [VarDeclaration]
+          ) [VarDeclarations]
+          VarDeclaration(
+            Type(
+             char
+            ) [Type]
+            VarListEnd(
               VarItem(
-               c
+               carr
                 Array(
                 ) [Array]
               ) [VarItem]
-            ) [VarListMore]
+            ) [VarListEnd]
           ) [VarDeclaration]
         ) [VarDeclarations]
         VarDeclaration(
           Type(
-           char
+           set
           ) [Type]
-          VarListEnd(
+          VarListMore(
+            VarListEnd(
+              VarItem(
+               s1
+                NoArray(
+                ) [NoArray]
+              ) [VarItem]
+            ) [VarListEnd]
             VarItem(
-             carr
-              Array(
-              ) [Array]
+             s2
+              NoArray(
+              ) [NoArray]
             ) [VarItem]
-          ) [VarListEnd]
+          ) [VarListMore]
         ) [VarDeclaration]
       ) [VarDeclarations]
       Statements(
@@ -184,128 +224,980 @@ INFO  19:00:08,329 - Program(
           Statements(
             Statements(
               Statements(
-                NoStatements(
-                ) [NoStatements]
-                MatchedStmt(
+                Statements(
+                  Statements(
+                    Statements(
+                      Statements(
+                        Statements(
+                          Statements(
+                            Statements(
+                              Statements(
+                                Statements(
+                                  Statements(
+                                    Statements(
+                                      Statements(
+                                        Statements(
+                                          NoStatements(
+                                          ) [NoStatements]
+                                          DesignatorStmtt(
+                                            Assignement(
+                                              DesignatorVar(
+                                               c
+                                              ) [DesignatorVar]
+                                              Assign(
+                                              ) [Assign]
+                                              DesignatorExpr(
+                                                Expretion(
+                                                  AddTerm(
+                                                    Term(
+                                                      TermFactor(
+                                                        NoUnaryFactor(
+                                                          NewFactor(
+                                                            Type(
+                                                             int
+                                                            ) [Type]
+                                                            Expretion(
+                                                              AddTerm(
+                                                                Term(
+                                                                  TermFactor(
+                                                                    NoUnaryFactor(
+                                                                      NumConstFactor(
+                                                                       4
+                                                                      ) [NumConstFactor]
+                                                                    ) [NoUnaryFactor]
+                                                                  ) [TermFactor]
+                                                                ) [Term]
+                                                              ) [AddTerm]
+                                                            ) [Expretion]
+                                                          ) [NewFactor]
+                                                        ) [NoUnaryFactor]
+                                                      ) [TermFactor]
+                                                    ) [Term]
+                                                  ) [AddTerm]
+                                                ) [Expretion]
+                                              ) [DesignatorExpr]
+                                            ) [Assignement]
+                                          ) [DesignatorStmtt]
+                                        ) [Statements]
+                                        DesignatorStmtt(
+                                          Assignement(
+                                            DesignatorArr(
+                                              DesignatorIdent(
+                                               c
+                                              ) [DesignatorIdent]
+                                              Expretion(
+                                                AddTerm(
+                                                  Term(
+                                                    TermFactor(
+                                                      NoUnaryFactor(
+                                                        NumConstFactor(
+                                                         0
+                                                        ) [NumConstFactor]
+                                                      ) [NoUnaryFactor]
+                                                    ) [TermFactor]
+                                                  ) [Term]
+                                                ) [AddTerm]
+                                              ) [Expretion]
+                                            ) [DesignatorArr]
+                                            Assign(
+                                            ) [Assign]
+                                            DesignatorExpr(
+                                              Expretion(
+                                                AddTerm(
+                                                  Term(
+                                                    TermFactor(
+                                                      NoUnaryFactor(
+                                                        NumConstFactor(
+                                                         2
+                                                        ) [NumConstFactor]
+                                                      ) [NoUnaryFactor]
+                                                    ) [TermFactor]
+                                                  ) [Term]
+                                                ) [AddTerm]
+                                              ) [Expretion]
+                                            ) [DesignatorExpr]
+                                          ) [Assignement]
+                                        ) [DesignatorStmtt]
+                                      ) [Statements]
+                                      DesignatorStmtt(
+                                        Assignement(
+                                          DesignatorArr(
+                                            DesignatorIdent(
+                                             c
+                                            ) [DesignatorIdent]
+                                            Expretion(
+                                              AddTerm(
+                                                Term(
+                                                  TermFactor(
+                                                    NoUnaryFactor(
+                                                      NumConstFactor(
+                                                       1
+                                                      ) [NumConstFactor]
+                                                    ) [NoUnaryFactor]
+                                                  ) [TermFactor]
+                                                ) [Term]
+                                              ) [AddTerm]
+                                            ) [Expretion]
+                                          ) [DesignatorArr]
+                                          Assign(
+                                          ) [Assign]
+                                          DesignatorExpr(
+                                            Expretion(
+                                              AddTerm(
+                                                Term(
+                                                  TermFactor(
+                                                    NoUnaryFactor(
+                                                      NumConstFactor(
+                                                       2
+                                                      ) [NumConstFactor]
+                                                    ) [NoUnaryFactor]
+                                                  ) [TermFactor]
+                                                ) [Term]
+                                              ) [AddTerm]
+                                            ) [Expretion]
+                                          ) [DesignatorExpr]
+                                        ) [Assignement]
+                                      ) [DesignatorStmtt]
+                                    ) [Statements]
+                                    DesignatorStmtt(
+                                      Assignement(
+                                        DesignatorArr(
+                                          DesignatorIdent(
+                                           c
+                                          ) [DesignatorIdent]
+                                          Expretion(
+                                            AddTerm(
+                                              Term(
+                                                TermFactor(
+                                                  NoUnaryFactor(
+                                                    NumConstFactor(
+                                                     2
+                                                    ) [NumConstFactor]
+                                                  ) [NoUnaryFactor]
+                                                ) [TermFactor]
+                                              ) [Term]
+                                            ) [AddTerm]
+                                          ) [Expretion]
+                                        ) [DesignatorArr]
+                                        Assign(
+                                        ) [Assign]
+                                        DesignatorExpr(
+                                          Expretion(
+                                            AddTerm(
+                                              Term(
+                                                TermFactor(
+                                                  NoUnaryFactor(
+                                                    NumConstFactor(
+                                                     2
+                                                    ) [NumConstFactor]
+                                                  ) [NoUnaryFactor]
+                                                ) [TermFactor]
+                                              ) [Term]
+                                            ) [AddTerm]
+                                          ) [Expretion]
+                                        ) [DesignatorExpr]
+                                      ) [Assignement]
+                                    ) [DesignatorStmtt]
+                                  ) [Statements]
+                                  DesignatorStmtt(
+                                    Assignement(
+                                      DesignatorArr(
+                                        DesignatorIdent(
+                                         c
+                                        ) [DesignatorIdent]
+                                        Expretion(
+                                          AddTerm(
+                                            Term(
+                                              TermFactor(
+                                                NoUnaryFactor(
+                                                  NumConstFactor(
+                                                   3
+                                                  ) [NumConstFactor]
+                                                ) [NoUnaryFactor]
+                                              ) [TermFactor]
+                                            ) [Term]
+                                          ) [AddTerm]
+                                        ) [Expretion]
+                                      ) [DesignatorArr]
+                                      Assign(
+                                      ) [Assign]
+                                      DesignatorExpr(
+                                        Expretion(
+                                          AddTerm(
+                                            Term(
+                                              TermFactor(
+                                                NoUnaryFactor(
+                                                  NumConstFactor(
+                                                   5
+                                                  ) [NumConstFactor]
+                                                ) [NoUnaryFactor]
+                                              ) [TermFactor]
+                                            ) [Term]
+                                          ) [AddTerm]
+                                        ) [Expretion]
+                                      ) [DesignatorExpr]
+                                    ) [Assignement]
+                                  ) [DesignatorStmtt]
+                                ) [Statements]
+                                DesignatorStmtt(
+                                  Assignement(
+                                    DesignatorVar(
+                                     s
+                                    ) [DesignatorVar]
+                                    Assign(
+                                    ) [Assign]
+                                    DesignatorExpr(
+                                      Expretion(
+                                        AddTerm(
+                                          Term(
+                                            TermFactor(
+                                              NoUnaryFactor(
+                                                NewFactor(
+                                                  Type(
+                                                   set
+                                                  ) [Type]
+                                                  Expretion(
+                                                    AddTerm(
+                                                      Term(
+                                                        TermFactor(
+                                                          NoUnaryFactor(
+                                                            NumConstFactor(
+                                                             5
+                                                            ) [NumConstFactor]
+                                                          ) [NoUnaryFactor]
+                                                        ) [TermFactor]
+                                                      ) [Term]
+                                                    ) [AddTerm]
+                                                  ) [Expretion]
+                                                ) [NewFactor]
+                                              ) [NoUnaryFactor]
+                                            ) [TermFactor]
+                                          ) [Term]
+                                        ) [AddTerm]
+                                      ) [Expretion]
+                                    ) [DesignatorExpr]
+                                  ) [Assignement]
+                                ) [DesignatorStmtt]
+                              ) [Statements]
+                              DesignatorStmtt(
+                                DesignatorStmt(
+                                  FunctionCall(
+                                    DesignatorVar(
+                                     add
+                                    ) [DesignatorVar]
+                                    FuncPars(
+                                      ActPars(
+                                        Expretion(
+                                          AddTerm(
+                                            Term(
+                                              TermFactor(
+                                                NoUnaryFactor(
+                                                  DesignatorFactor(
+                                                    DesignatorVar(
+                                                     s
+                                                    ) [DesignatorVar]
+                                                  ) [DesignatorFactor]
+                                                ) [NoUnaryFactor]
+                                              ) [TermFactor]
+                                            ) [Term]
+                                          ) [AddTerm]
+                                        ) [Expretion]
+                                        ActParams(
+                                          NoActParams(
+                                          ) [NoActParams]
+                                          Expretion(
+                                            AddTerm(
+                                              Term(
+                                                TermFactor(
+                                                  NoUnaryFactor(
+                                                    NumConstFactor(
+                                                     3
+                                                    ) [NumConstFactor]
+                                                  ) [NoUnaryFactor]
+                                                ) [TermFactor]
+                                              ) [Term]
+                                            ) [AddTerm]
+                                          ) [Expretion]
+                                        ) [ActParams]
+                                      ) [ActPars]
+                                    ) [FuncPars]
+                                  ) [FunctionCall]
+                                ) [DesignatorStmt]
+                              ) [DesignatorStmtt]
+                            ) [Statements]
+                            DesignatorStmtt(
+                              Assignement(
+                                DesignatorVar(
+                                 s1
+                                ) [DesignatorVar]
+                                Assign(
+                                ) [Assign]
+                                DesignatorExpr(
+                                  Expretion(
+                                    AddTerm(
+                                      Term(
+                                        TermFactor(
+                                          NoUnaryFactor(
+                                            NewFactor(
+                                              Type(
+                                               set
+                                              ) [Type]
+                                              Expretion(
+                                                AddTerm(
+                                                  Term(
+                                                    TermFactor(
+                                                      NoUnaryFactor(
+                                                        NumConstFactor(
+                                                         2
+                                                        ) [NumConstFactor]
+                                                      ) [NoUnaryFactor]
+                                                    ) [TermFactor]
+                                                  ) [Term]
+                                                ) [AddTerm]
+                                              ) [Expretion]
+                                            ) [NewFactor]
+                                          ) [NoUnaryFactor]
+                                        ) [TermFactor]
+                                      ) [Term]
+                                    ) [AddTerm]
+                                  ) [Expretion]
+                                ) [DesignatorExpr]
+                              ) [Assignement]
+                            ) [DesignatorStmtt]
+                          ) [Statements]
+                          DesignatorStmtt(
+                            Assignement(
+                              DesignatorVar(
+                               s2
+                              ) [DesignatorVar]
+                              Assign(
+                              ) [Assign]
+                              DesignatorExpr(
+                                Expretion(
+                                  AddTerm(
+                                    Term(
+                                      TermFactor(
+                                        NoUnaryFactor(
+                                          NewFactor(
+                                            Type(
+                                             set
+                                            ) [Type]
+                                            Expretion(
+                                              AddTerm(
+                                                Term(
+                                                  TermFactor(
+                                                    NoUnaryFactor(
+                                                      NumConstFactor(
+                                                       3
+                                                      ) [NumConstFactor]
+                                                    ) [NoUnaryFactor]
+                                                  ) [TermFactor]
+                                                ) [Term]
+                                              ) [AddTerm]
+                                            ) [Expretion]
+                                          ) [NewFactor]
+                                        ) [NoUnaryFactor]
+                                      ) [TermFactor]
+                                    ) [Term]
+                                  ) [AddTerm]
+                                ) [Expretion]
+                              ) [DesignatorExpr]
+                            ) [Assignement]
+                          ) [DesignatorStmtt]
+                        ) [Statements]
+                        DesignatorStmtt(
+                          DesignatorStmt(
+                            FunctionCall(
+                              DesignatorVar(
+                               addAll
+                              ) [DesignatorVar]
+                              FuncPars(
+                                ActPars(
+                                  Expretion(
+                                    AddTerm(
+                                      Term(
+                                        TermFactor(
+                                          NoUnaryFactor(
+                                            DesignatorFactor(
+                                              DesignatorVar(
+                                               s1
+                                              ) [DesignatorVar]
+                                            ) [DesignatorFactor]
+                                          ) [NoUnaryFactor]
+                                        ) [TermFactor]
+                                      ) [Term]
+                                    ) [AddTerm]
+                                  ) [Expretion]
+                                  ActParams(
+                                    NoActParams(
+                                    ) [NoActParams]
+                                    Expretion(
+                                      AddTerm(
+                                        Term(
+                                          TermFactor(
+                                            NoUnaryFactor(
+                                              DesignatorFactor(
+                                                DesignatorVar(
+                                                 c
+                                                ) [DesignatorVar]
+                                              ) [DesignatorFactor]
+                                            ) [NoUnaryFactor]
+                                          ) [TermFactor]
+                                        ) [Term]
+                                      ) [AddTerm]
+                                    ) [Expretion]
+                                  ) [ActParams]
+                                ) [ActPars]
+                              ) [FuncPars]
+                            ) [FunctionCall]
+                          ) [DesignatorStmt]
+                        ) [DesignatorStmtt]
+                      ) [Statements]
+                      DesignatorStmtt(
+                        DesignatorStmt(
+                          FunctionCall(
+                            DesignatorVar(
+                             add
+                            ) [DesignatorVar]
+                            FuncPars(
+                              ActPars(
+                                Expretion(
+                                  AddTerm(
+                                    Term(
+                                      TermFactor(
+                                        NoUnaryFactor(
+                                          DesignatorFactor(
+                                            DesignatorVar(
+                                             s2
+                                            ) [DesignatorVar]
+                                          ) [DesignatorFactor]
+                                        ) [NoUnaryFactor]
+                                      ) [TermFactor]
+                                    ) [Term]
+                                  ) [AddTerm]
+                                ) [Expretion]
+                                ActParams(
+                                  NoActParams(
+                                  ) [NoActParams]
+                                  Expretion(
+                                    AddTerm(
+                                      Term(
+                                        TermFactor(
+                                          NoUnaryFactor(
+                                            NumConstFactor(
+                                             6
+                                            ) [NumConstFactor]
+                                          ) [NoUnaryFactor]
+                                        ) [TermFactor]
+                                      ) [Term]
+                                    ) [AddTerm]
+                                  ) [Expretion]
+                                ) [ActParams]
+                              ) [ActPars]
+                            ) [FuncPars]
+                          ) [FunctionCall]
+                        ) [DesignatorStmt]
+                      ) [DesignatorStmtt]
+                    ) [Statements]
+                    DesignatorStmtt(
+                      DesignatorStmt(
+                        FunctionCall(
+                          DesignatorVar(
+                           add
+                          ) [DesignatorVar]
+                          FuncPars(
+                            ActPars(
+                              Expretion(
+                                AddTerm(
+                                  Term(
+                                    TermFactor(
+                                      NoUnaryFactor(
+                                        DesignatorFactor(
+                                          DesignatorVar(
+                                           s2
+                                          ) [DesignatorVar]
+                                        ) [DesignatorFactor]
+                                      ) [NoUnaryFactor]
+                                    ) [TermFactor]
+                                  ) [Term]
+                                ) [AddTerm]
+                              ) [Expretion]
+                              ActParams(
+                                NoActParams(
+                                ) [NoActParams]
+                                Expretion(
+                                  AddTerm(
+                                    Term(
+                                      TermFactor(
+                                        NoUnaryFactor(
+                                          NumConstFactor(
+                                           8
+                                          ) [NumConstFactor]
+                                        ) [NoUnaryFactor]
+                                      ) [TermFactor]
+                                    ) [Term]
+                                  ) [AddTerm]
+                                ) [Expretion]
+                              ) [ActParams]
+                            ) [ActPars]
+                          ) [FuncPars]
+                        ) [FunctionCall]
+                      ) [DesignatorStmt]
+                    ) [DesignatorStmtt]
+                  ) [Statements]
                   DesignatorStmtt(
                     DesignatorStmt(
                       FunctionCall(
                         DesignatorVar(
-                         f
+                         add
                         ) [DesignatorVar]
-                        NoFuncPars(
-                        ) [NoFuncPars]
+                        FuncPars(
+                          ActPars(
+                            Expretion(
+                              AddTerm(
+                                Term(
+                                  TermFactor(
+                                    NoUnaryFactor(
+                                      DesignatorFactor(
+                                        DesignatorVar(
+                                         s2
+                                        ) [DesignatorVar]
+                                      ) [DesignatorFactor]
+                                    ) [NoUnaryFactor]
+                                  ) [TermFactor]
+                                ) [Term]
+                              ) [AddTerm]
+                            ) [Expretion]
+                            ActParams(
+                              NoActParams(
+                              ) [NoActParams]
+                              Expretion(
+                                AddTerm(
+                                  Term(
+                                    TermFactor(
+                                      NoUnaryFactor(
+                                        NumConstFactor(
+                                         9
+                                        ) [NumConstFactor]
+                                      ) [NoUnaryFactor]
+                                    ) [TermFactor]
+                                  ) [Term]
+                                ) [AddTerm]
+                              ) [Expretion]
+                            ) [ActParams]
+                          ) [ActPars]
+                        ) [FuncPars]
                       ) [FunctionCall]
                     ) [DesignatorStmt]
                   ) [DesignatorStmtt]
-                ) [MatchedStmt]
-              ) [Statements]
-              MatchedStmt(
+                ) [Statements]
                 DesignatorStmtt(
-                  DesignatorStmt(
-                    FunctionCall(
-                      DesignatorVar(
-                       f
-                      ) [DesignatorVar]
-                      NoFuncPars(
-                      ) [NoFuncPars]
-                    ) [FunctionCall]
-                  ) [DesignatorStmt]
-                ) [DesignatorStmtt]
-              ) [MatchedStmt]
-            ) [Statements]
-            MatchedStmt(
-              DesignatorStmtt(
-                DesignatorStmt(
-                  FunctionCall(
+                  Assignement(
                     DesignatorVar(
-                     f
+                     s
                     ) [DesignatorVar]
-                    NoFuncPars(
-                    ) [NoFuncPars]
-                  ) [FunctionCall]
-                ) [DesignatorStmt]
-              ) [DesignatorStmtt]
-            ) [MatchedStmt]
-          ) [Statements]
-          MatchedStmt(
+                    Assign(
+                    ) [Assign]
+                    UnionStmt(
+                      DesignatorVar(
+                       s1
+                      ) [DesignatorVar]
+                      Union(
+                      ) [Union]
+                      DesignatorVar(
+                       s2
+                      ) [DesignatorVar]
+                    ) [UnionStmt]
+                  ) [Assignement]
+                ) [DesignatorStmtt]
+              ) [Statements]
+              Print(
+                Expretion(
+                  AddTerm(
+                    Term(
+                      TermFactor(
+                        NoUnaryFactor(
+                          DesignatorFactor(
+                            DesignatorVar(
+                             eol
+                            ) [DesignatorVar]
+                          ) [DesignatorFactor]
+                        ) [NoUnaryFactor]
+                      ) [TermFactor]
+                    ) [Term]
+                  ) [AddTerm]
+                ) [Expretion]
+                NoPrintNumConst(
+                ) [NoPrintNumConst]
+              ) [Print]
+            ) [Statements]
             DesignatorStmtt(
               Assignement(
                 DesignatorVar(
-                 a
+                 i
                 ) [DesignatorVar]
                 Assign(
                 ) [Assign]
                 DesignatorExpr(
                   Expretion(
-                    AddTerms(
-                      AddTerm(
-                        Term(
-                          TermFactor(
-                            NoUnaryFactor(
-                              DesignatorMethFactor(
-                                DesignatorVar(
-                                 f
-                                ) [DesignatorVar]
-                                NoFuncPars(
-                                ) [NoFuncPars]
-                              ) [DesignatorMethFactor]
-                            ) [NoUnaryFactor]
-                          ) [TermFactor]
-                        ) [Term]
-                      ) [AddTerm]
-                      Plus(
-                      ) [Plus]
+                    AddTerm(
                       Term(
                         TermFactor(
                           NoUnaryFactor(
                             NumConstFactor(
-                             3
+                             5
                             ) [NumConstFactor]
                           ) [NoUnaryFactor]
                         ) [TermFactor]
                       ) [Term]
-                    ) [AddTerms]
+                    ) [AddTerm]
                   ) [Expretion]
                 ) [DesignatorExpr]
               ) [Assignement]
             ) [DesignatorStmtt]
-          ) [MatchedStmt]
-        ) [Statements]
-        MatchedStmt(
-          Print(
-            Expretion(
-              AddTerm(
-                Term(
-                  TermFactor(
-                    NoUnaryFactor(
-                      DesignatorFactor(
+          ) [Statements]
+          DoWhile(
+            BeginDoWhile(
+            ) [BeginDoWhile]
+            MatchedStatements(
+              Statements(
+                Statements(
+                  Statements(
+                    Statements(
+                      Statements(
+                        NoStatements(
+                        ) [NoStatements]
+                        If(
+                          IfCond(
+                            Condition(
+                              ConditionTerms(
+                                ConditionTerm(
+                                  ConditionFacts(
+                                    Relops(
+                                      Expretion(
+                                        AddTerm(
+                                          Term(
+                                            TermFactor(
+                                              NoUnaryFactor(
+                                                DesignatorFactor(
+                                                  DesignatorVar(
+                                                   i
+                                                  ) [DesignatorVar]
+                                                ) [DesignatorFactor]
+                                              ) [NoUnaryFactor]
+                                            ) [TermFactor]
+                                          ) [Term]
+                                        ) [AddTerm]
+                                      ) [Expretion]
+                                      Eq(
+                                      ) [Eq]
+                                      Expretion(
+                                        AddTerm(
+                                          Term(
+                                            TermFactor(
+                                              NoUnaryFactor(
+                                                NumConstFactor(
+                                                 3
+                                                ) [NumConstFactor]
+                                              ) [NoUnaryFactor]
+                                            ) [TermFactor]
+                                          ) [Term]
+                                        ) [AddTerm]
+                                      ) [Expretion]
+                                    ) [Relops]
+                                  ) [ConditionFacts]
+                                ) [ConditionTerm]
+                              ) [ConditionTerms]
+                            ) [Condition]
+                          ) [IfCond]
+                          Continue(
+                          ) [Continue]
+                          NoElse(
+                          ) [NoElse]
+                        ) [If]
+                      ) [Statements]
+                      Print(
+                        Expretion(
+                          AddTerm(
+                            Term(
+                              TermFactor(
+                                NoUnaryFactor(
+                                  DesignatorFactor(
+                                    DesignatorVar(
+                                     i
+                                    ) [DesignatorVar]
+                                  ) [DesignatorFactor]
+                                ) [NoUnaryFactor]
+                              ) [TermFactor]
+                            ) [Term]
+                          ) [AddTerm]
+                        ) [Expretion]
+                        NoPrintNumConst(
+                        ) [NoPrintNumConst]
+                      ) [Print]
+                    ) [Statements]
+                    DesignatorStmtt(
+                      Assignement(
                         DesignatorVar(
-                         a
+                         j
                         ) [DesignatorVar]
-                      ) [DesignatorFactor]
-                    ) [NoUnaryFactor]
-                  ) [TermFactor]
-                ) [Term]
-              ) [AddTerm]
-            ) [Expretion]
-            NoPrintNumConst(
-            ) [NoPrintNumConst]
-          ) [Print]
-        ) [MatchedStmt]
+                        Assign(
+                        ) [Assign]
+                        DesignatorExpr(
+                          Expretion(
+                            AddTerm(
+                              Term(
+                                TermFactor(
+                                  NoUnaryFactor(
+                                    NumConstFactor(
+                                     3
+                                    ) [NumConstFactor]
+                                  ) [NoUnaryFactor]
+                                ) [TermFactor]
+                              ) [Term]
+                            ) [AddTerm]
+                          ) [Expretion]
+                        ) [DesignatorExpr]
+                      ) [Assignement]
+                    ) [DesignatorStmtt]
+                  ) [Statements]
+                  DoWhile(
+                    BeginDoWhile(
+                    ) [BeginDoWhile]
+                    MatchedStatements(
+                      Statements(
+                        Statements(
+                          Statements(
+                            NoStatements(
+                            ) [NoStatements]
+                            Print(
+                              Expretion(
+                                AddTerm(
+                                  Term(
+                                    TermFactor(
+                                      NoUnaryFactor(
+                                        DesignatorFactor(
+                                          DesignatorVar(
+                                           j
+                                          ) [DesignatorVar]
+                                        ) [DesignatorFactor]
+                                      ) [NoUnaryFactor]
+                                    ) [TermFactor]
+                                  ) [Term]
+                                ) [AddTerm]
+                              ) [Expretion]
+                              NoPrintNumConst(
+                              ) [NoPrintNumConst]
+                            ) [Print]
+                          ) [Statements]
+                          DesignatorStmtt(
+                            DesignatorStmt(
+                              Dec(
+                                DesignatorVar(
+                                 j
+                                ) [DesignatorVar]
+                              ) [Dec]
+                            ) [DesignatorStmt]
+                          ) [DesignatorStmtt]
+                        ) [Statements]
+                        If(
+                          IfCond(
+                            Condition(
+                              ConditionTerms(
+                                ConditionTerm(
+                                  ConditionFacts(
+                                    Relops(
+                                      Expretion(
+                                        AddTerm(
+                                          Term(
+                                            TermFactor(
+                                              NoUnaryFactor(
+                                                DesignatorFactor(
+                                                  DesignatorVar(
+                                                   j
+                                                  ) [DesignatorVar]
+                                                ) [DesignatorFactor]
+                                              ) [NoUnaryFactor]
+                                            ) [TermFactor]
+                                          ) [Term]
+                                        ) [AddTerm]
+                                      ) [Expretion]
+                                      Eq(
+                                      ) [Eq]
+                                      Expretion(
+                                        AddTerm(
+                                          Term(
+                                            TermFactor(
+                                              NoUnaryFactor(
+                                                NumConstFactor(
+                                                 0
+                                                ) [NumConstFactor]
+                                              ) [NoUnaryFactor]
+                                            ) [TermFactor]
+                                          ) [Term]
+                                        ) [AddTerm]
+                                      ) [Expretion]
+                                    ) [Relops]
+                                  ) [ConditionFacts]
+                                ) [ConditionTerm]
+                              ) [ConditionTerms]
+                            ) [Condition]
+                          ) [IfCond]
+                          MatchedStatements(
+                            Statements(
+                              NoStatements(
+                              ) [NoStatements]
+                              Break(
+                              ) [Break]
+                            ) [Statements]
+                          ) [MatchedStatements]
+                          NoElse(
+                          ) [NoElse]
+                        ) [If]
+                      ) [Statements]
+                    ) [MatchedStatements]
+                    While(
+                    ) [While]
+                    NoDoWhileCond(
+                    ) [NoDoWhileCond]
+                  ) [DoWhile]
+                ) [Statements]
+                Print(
+                  Expretion(
+                    AddTerm(
+                      Term(
+                        TermFactor(
+                          NoUnaryFactor(
+                            DesignatorFactor(
+                              DesignatorVar(
+                               eol
+                              ) [DesignatorVar]
+                            ) [DesignatorFactor]
+                          ) [NoUnaryFactor]
+                        ) [TermFactor]
+                      ) [Term]
+                    ) [AddTerm]
+                  ) [Expretion]
+                  NoPrintNumConst(
+                  ) [NoPrintNumConst]
+                ) [Print]
+              ) [Statements]
+            ) [MatchedStatements]
+            While(
+            ) [While]
+            DoWhileCond(
+              Condition(
+                ConditionTerms(
+                  ConditionTerm(
+                    ConditionFacts(
+                      Relops(
+                        Expretion(
+                          AddTerm(
+                            Term(
+                              TermFactor(
+                                NoUnaryFactor(
+                                  DesignatorFactor(
+                                    DesignatorVar(
+                                     i
+                                    ) [DesignatorVar]
+                                  ) [DesignatorFactor]
+                                ) [NoUnaryFactor]
+                              ) [TermFactor]
+                            ) [Term]
+                          ) [AddTerm]
+                        ) [Expretion]
+                        Gt(
+                        ) [Gt]
+                        Expretion(
+                          AddTerm(
+                            Term(
+                              TermFactor(
+                                NoUnaryFactor(
+                                  NumConstFactor(
+                                   0
+                                  ) [NumConstFactor]
+                                ) [NoUnaryFactor]
+                              ) [TermFactor]
+                            ) [Term]
+                          ) [AddTerm]
+                        ) [Expretion]
+                      ) [Relops]
+                    ) [ConditionFacts]
+                  ) [ConditionTerm]
+                ) [ConditionTerms]
+              ) [Condition]
+              DoWhileDesignatorStmt(
+                DesignatorStmtDoWhile(
+                  Dec(
+                    DesignatorVar(
+                     i
+                    ) [DesignatorVar]
+                  ) [Dec]
+                ) [DesignatorStmtDoWhile]
+              ) [DoWhileDesignatorStmt]
+            ) [DoWhileCond]
+          ) [DoWhile]
+        ) [Statements]
+        Print(
+          Expretion(
+            AddTerm(
+              Term(
+                TermFactor(
+                  NoUnaryFactor(
+                    DesignatorFactor(
+                      DesignatorVar(
+                       i
+                      ) [DesignatorVar]
+                    ) [DesignatorFactor]
+                  ) [NoUnaryFactor]
+                ) [TermFactor]
+              ) [Term]
+            ) [AddTerm]
+          ) [Expretion]
+          NoPrintNumConst(
+          ) [NoPrintNumConst]
+        ) [Print]
       ) [Statements]
     ) [MethodDecl]
   ) [MethodDeclarations]
 ) [Program]
-INFO  19:00:08,330 - =====================================================================
-INFO  19:00:08,330 - ========================= SEMANTICKA ANALIZA =========================
-INFO  19:00:08,330 - =====================================================================
-INFO  19:00:08,347 - Poziv funkcije na liniji 14                  : [ Meth int f(), 0, 0 ]
-INFO  19:00:08,347 - Poziv funkcije na liniji 14                  : [ Meth int f(), 0, 0 ]
-INFO  19:00:08,347 - Poziv funkcije na liniji 14                  : [ Meth int f(), 0, 0 ]
-INFO  19:00:08,347 - Koriscena lokalna promenljiva na liniji 15   : [ Var int a, 0, 1 ]
-INFO  19:00:08,347 - Poziv funkcije na liniji 15                  : [ Meth int f(), 0, 0 ]
-INFO  19:00:08,347 - Koriscena lokalna promenljiva na liniji 17   : [ Var int a, 0, 1 ]
-INFO  19:00:08,348 - true
-INFO  19:00:08,349 - true
-INFO  19:00:08,375 - Generisanje uspesno zavrseno!
+INFO  18:47:38,205 - =====================================================================
+INFO  18:47:38,205 - ========================= SEMANTICKA ANALIZA =========================
+INFO  18:47:38,205 - =====================================================================
+INFO  18:47:38,212 - Koriscena lokalna promenljiva na liniji 14   : [ Var int[] c, 3, 1 ]
+INFO  18:47:38,212 - Pristup elementu lokalnog  niza na liniji 15 : [ Elem int c[], 3, 1 ]
+INFO  18:47:38,212 - Pristup elementu lokalnog  niza na liniji 16 : [ Elem int c[], 3, 1 ]
+INFO  18:47:38,212 - Pristup elementu lokalnog  niza na liniji 17 : [ Elem int c[], 3, 1 ]
+INFO  18:47:38,213 - Pristup elementu lokalnog  niza na liniji 18 : [ Elem int c[], 3, 1 ]
+INFO  18:47:38,213 - Koriscena globalna promenljiva na liniji 19  : [ Var set s, 0, 0 ]
+INFO  18:47:38,213 - Poziv funkcije na liniji 20                  : [ Meth  add(set, int), 0, 2 ]
+INFO  18:47:38,213 - Koriscena globalna promenljiva na liniji 20  : [ Var set s, 0, 0 ]
+INFO  18:47:38,213 - Koriscena lokalna promenljiva na liniji 21   : [ Var set s1, 5, 1 ]
+INFO  18:47:38,213 - Koriscena lokalna promenljiva na liniji 22   : [ Var set s2, 6, 1 ]
+INFO  18:47:38,213 - Poziv funkcije na liniji 23                  : [ Meth  addAll(set, int[]), 0, 2 ]
+INFO  18:47:38,213 - Koriscena lokalna promenljiva na liniji 23   : [ Var set s1, 5, 1 ]
+INFO  18:47:38,213 - Koriscena lokalna promenljiva na liniji 23   : [ Var int[] c, 3, 1 ]
+INFO  18:47:38,213 - Poziv funkcije na liniji 24                  : [ Meth  add(set, int), 0, 2 ]
+INFO  18:47:38,213 - Koriscena lokalna promenljiva na liniji 24   : [ Var set s2, 6, 1 ]
+INFO  18:47:38,213 - Poziv funkcije na liniji 25                  : [ Meth  add(set, int), 0, 2 ]
+INFO  18:47:38,213 - Koriscena lokalna promenljiva na liniji 25   : [ Var set s2, 6, 1 ]
+INFO  18:47:38,213 - Poziv funkcije na liniji 26                  : [ Meth  add(set, int), 0, 2 ]
+INFO  18:47:38,213 - Koriscena lokalna promenljiva na liniji 26   : [ Var set s2, 6, 1 ]
+INFO  18:47:38,213 - Koriscena globalna promenljiva na liniji 27  : [ Var set s, 0, 0 ]
+INFO  18:47:38,214 - Koriscena lokalna promenljiva na liniji 27   : [ Var set s1, 5, 1 ]
+INFO  18:47:38,214 - Koriscena lokalna promenljiva na liniji 27   : [ Var set s2, 6, 1 ]
+INFO  18:47:38,214 - Koriscen simbolicka konstanta na liniji 28   : [ Con char eol, 10, 0 ]
+INFO  18:47:38,214 - Koriscena lokalna promenljiva na liniji 29   : [ Var int i, 2, 1 ]
+INFO  18:47:38,214 - Koriscena lokalna promenljiva na liniji 31   : [ Var int i, 2, 1 ]
+INFO  18:47:38,214 - Koriscena lokalna promenljiva na liniji 32   : [ Var int i, 2, 1 ]
+INFO  18:47:38,214 - Koriscena lokalna promenljiva na liniji 33   : [ Var int j, 1, 1 ]
+INFO  18:47:38,214 - Koriscena lokalna promenljiva na liniji 36   : [ Var int j, 1, 1 ]
+INFO  18:47:38,214 - Koriscena lokalna promenljiva na liniji 37   : [ Var int j, 1, 1 ]
+INFO  18:47:38,214 - Koriscena lokalna promenljiva na liniji 38   : [ Var int j, 1, 1 ]
+INFO  18:47:38,214 - Koriscen simbolicka konstanta na liniji 42   : [ Con char eol, 10, 0 ]
+INFO  18:47:38,214 - Koriscena lokalna promenljiva na liniji 43   : [ Var int i, 2, 1 ]
+INFO  18:47:38,214 - Koriscena lokalna promenljiva na liniji 43   : [ Var int i, 2, 1 ]
+INFO  18:47:38,214 - Koriscena lokalna promenljiva na liniji 44   : [ Var int i, 2, 1 ]
+INFO  18:47:38,215 - true
+INFO  18:47:38,215 - true
+INFO  18:47:38,226 - Generisanje uspesno zavrseno!

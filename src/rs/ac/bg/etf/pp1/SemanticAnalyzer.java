@@ -46,7 +46,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         Tab.insert(Obj.Type, "set", setStruct);
 
         Obj addObj, addAllObj;
-        universe.addToLocals(addObj = new Obj(Obj.Meth, "add", setStruct, 0, 2));
+        universe.addToLocals(addObj = new Obj(Obj.Meth, "add", Tab.noType, 0, 2));
         {
             Tab.openScope();
             Tab.currentScope().addToLocals(new Obj(Obj.Var, "a", setStruct, 0, 1));
@@ -58,7 +58,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
             o.setFpPos(1);
         }
 
-        universe.addToLocals(addAllObj = new Obj(Obj.Meth, "addAll", setStruct, 0, 2));
+        universe.addToLocals(addAllObj = new Obj(Obj.Meth, "addAll", Tab.noType, 0, 2));
         {
             Tab.openScope();
             Tab.currentScope().addToLocals(new Obj(Obj.Var, "a", setStruct, 0, 1));

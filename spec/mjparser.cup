@@ -70,19 +70,22 @@ nonterminal InterfaceDecl, InterfaceDeclOptList, InterfaceDeclOpt;
 nonterminal FormParsOpt;
 nonterminal VarDeclList, StatementList;
 nonterminal FormPars, FormParsList, FormPar, FormParItem;
-nonterminal Statement, Matched, Unmatched, IfConstruction;
+nonterminal Statement, OptionalElse, IfCondition;
 nonterminal OptionalNumConst, OptionalCondition, OptionalDesignatorStatement, BeginDoWhile;
 nonterminal DesignatorStatement;
 nonterminal OptionalActPars;
 nonterminal ActPars, ActParsList;
 nonterminal Label, Assignop, Relop, Addop, Mulop, Setop;
 nonterminal DesignatorStatementWhile, DesignatorOrExprWhile;
+nonterminal Else, While;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramName, Program, MethodSignature, MethodDecl, Designator, DesignatorIdent;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Consts, MethodType;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, FactorOpt, FactorList, Term, TermList, Expr;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct DesignatorOrExpr, DesignatorOpt, OptionalExpr;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondTermList, CondFactList, CondFact;
+
+precedence left ELSE;
 
 Program     ::= (Program) PROG ProgramName:p DeclList LBRACE MethodDeclList RBRACE;
 ProgramName ::= (ProgramName) IDENT:progName;
@@ -168,24 +171,25 @@ Type ::= (Type) IDENT:type;
 
 
 
-Statement   ::= (MatchedStmt) Matched
-              | (UnmatchedStmt) Unmatched;
-Unmatched   ::= (UnmatchedIf) IfConstruction Statement
-		 	  | (UnmatchedIfElse) IfConstruction Matched ELSE Unmatched;
-IfConstruction  ::= (If) IF LPAREN Condition RPAREN
-                  | (IfError) IF LPAREN error RPAREN:l {:
+OptionalElse ::= (NoElse) /* epsilon */
+               | (WithElse) Else Statement;
+Else ::= (Else) ELSE;
+
+IfCondition  ::= (IfCond) Condition
+                  | (IfError) error:l {:
                         parser.report_error("Izvrsen oporavak greska pri logickom izraz unutar if konstrukcije do ) u liniji " + lleft, null);
                   :};
 
-Matched     ::= (DesignatorStmtt) DesignatorStatement
-              | (MatchedIf) IfConstruction Matched ELSE Matched
+Statement     ::= (DesignatorStmtt) DesignatorStatement
+              | (If) IF LPAREN IfCondition RPAREN Statement OptionalElse
               | (Break) BREAK SEMI
               | (Continue) CONTINUE SEMI
               | (Return) RETURN OptionalExpr SEMI
               | (Read) READ LPAREN Designator RPAREN SEMI
               | (Print) PRINT LPAREN Expr OptionalNumConst RPAREN SEMI
-              | (DoWhile) BeginDoWhile Statement WHILE LPAREN OptionalCondition
+              | (DoWhile) BeginDoWhile Statement While LPAREN OptionalCondition
               | (MatchedStatements) LBRACE StatementList RBRACE;
+While ::= (While) WHILE;
 BeginDoWhile    ::= (BeginDoWhile) DO;
 OptionalExpr    ::= (NoReturnExpr) /* epsilon */
                   | (ReturnExpr) Expr;

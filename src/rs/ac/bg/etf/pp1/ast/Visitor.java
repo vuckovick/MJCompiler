@@ -1,13 +1,12 @@
 // generated with ast extension for cup
 // version 0.8
-// 18/6/2025 15:55:44
+// 26/6/2025 18:20:58
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public interface Visitor { 
 
-    public void visit(Unmatched Unmatched);
     public void visit(OptionalNumConst OptionalNumConst);
     public void visit(FactorOpt FactorOpt);
     public void visit(Mulop Mulop);
@@ -16,7 +15,6 @@ public interface Visitor {
     public void visit(FormParsOpt FormParsOpt);
     public void visit(InterfaceDecl InterfaceDecl);
     public void visit(DesignatorOrExprWhile DesignatorOrExprWhile);
-    public void visit(Matched Matched);
     public void visit(Relop Relop);
     public void visit(OptionalMethodDecl OptionalMethodDecl);
     public void visit(TermList TermList);
@@ -42,6 +40,7 @@ public interface Visitor {
     public void visit(FormParsList FormParsList);
     public void visit(ConstDeclList ConstDeclList);
     public void visit(ActParsList ActParsList);
+    public void visit(IfCondition IfCondition);
     public void visit(InterfaceDeclOpt InterfaceDeclOpt);
     public void visit(VarDeclList VarDeclList);
     public void visit(Expr Expr);
@@ -53,13 +52,13 @@ public interface Visitor {
     public void visit(VarDecl VarDecl);
     public void visit(ClassDecl ClassDecl);
     public void visit(CondFact CondFact);
-    public void visit(IfConstruction IfConstruction);
     public void visit(Setop Setop);
     public void visit(MethodDeclList MethodDeclList);
     public void visit(GlobalVarList GlobalVarList);
     public void visit(DesignatorOrExpr DesignatorOrExpr);
     public void visit(Consts Consts);
     public void visit(FormPars FormPars);
+    public void visit(OptionalElse OptionalElse);
     public void visit(Union Union);
     public void visit(Mod Mod);
     public void visit(Div Div);
@@ -128,6 +127,7 @@ public interface Visitor {
     public void visit(ReturnExpr ReturnExpr);
     public void visit(NoReturnExpr NoReturnExpr);
     public void visit(BeginDoWhile BeginDoWhile);
+    public void visit(While While);
     public void visit(MatchedStatements MatchedStatements);
     public void visit(DoWhile DoWhile);
     public void visit(Print Print);
@@ -135,14 +135,13 @@ public interface Visitor {
     public void visit(Return Return);
     public void visit(Continue Continue);
     public void visit(Break Break);
-    public void visit(MatchedIf MatchedIf);
+    public void visit(If If);
     public void visit(DesignatorStmtt DesignatorStmtt);
     public void visit(IfError IfError);
-    public void visit(If If);
-    public void visit(UnmatchedIfElse UnmatchedIfElse);
-    public void visit(UnmatchedIf UnmatchedIf);
-    public void visit(UnmatchedStmt UnmatchedStmt);
-    public void visit(MatchedStmt MatchedStmt);
+    public void visit(IfCond IfCond);
+    public void visit(Else Else);
+    public void visit(WithElse WithElse);
+    public void visit(NoElse NoElse);
     public void visit(Type Type);
     public void visit(FormPar FormPar);
     public void visit(FormParItemError FormParItemError);

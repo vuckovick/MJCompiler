@@ -6,12 +6,235 @@ import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class CodeGenerator extends VisitorAdaptor {
-    private int mainPc, skipThen;
-    private Stack<Integer> skipCondFact = new Stack<>();
-    private Stack<Integer> skipCondition = new Stack<>();
+    private int mainPc;
+    private final int printSetMeth, unionMeth;
+    private final Stack<Integer> skipCondFact = new Stack<>();
+    private final Stack<Integer> skipCondition = new Stack<>();
+    private final Stack<Integer> skipThen = new Stack<>();
+    private final Stack<Integer> skipElse = new Stack<>();
+    private final Stack<Integer> doBegin = new Stack<>();
+    private final Stack<List<Integer>> breakJumps = new Stack<>();
+    private final Stack<List<Integer>> continueJumps = new Stack<>();
+    private final Struct setStruct;
+
+    CodeGenerator(){
+        //setStruct
+        Obj setObj = Tab.find("set");
+        setStruct = setObj.getType();
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // chr i ord
+        Obj chrMeth = Tab.find("chr");
+        Obj ordMeth = Tab.find("ord");
+        chrMeth.setAdr(Code.pc);
+        ordMeth.setAdr(Code.pc);
+        Code.put(Code.enter);
+        Code.put(1);
+        Code.put(1);
+        Code.put(Code.load_n);
+        Code.put(Code.exit);
+        Code.put(Code.return_);
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // len
+        Obj lenMeth = Tab.find("len");
+        lenMeth.setAdr(Code.pc);
+        Code.put(Code.enter);
+        Code.put(1);
+        Code.put(1);
+        Code.put(Code.load_n);
+        Code.put(Code.arraylength);
+        Code.put(Code.exit);
+        Code.put(Code.return_);
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // add
+        Obj addMeth = Tab.find("add");
+        addMeth.setAdr(Code.pc);
+        Code.put(Code.enter);
+        Code.put(2);    // fp: set a, int b
+        Code.put(2);    // lp:
+
+        // provera da li ima mesta
+        Code.put(Code.load_n);      // Stek: adr(a)
+        Code.put(Code.arraylength); // Stek: size(a) + 1
+        Code.loadConst(1);       // Stek: size(a) + 1, 1
+        Code.put(Code.sub);         // Stek: size(a)
+        Code.put(Code.load_n);      // Stek: size(a), adr(a)
+        Code.loadConst(0);       // Stek: size(a), adr(a), 0
+        Code.put(Code.aload);       // Stek: size(a), len(a)
+        Code.putFalseJump(Code.ne, 0);
+        int jumpNoSpace = Code.pc - 2;
+
+        // provera da li je prazan set
+        Code.put(Code.load_n);      // Stek: adr(a)
+        Code.loadConst(0);       // Stek: adr(a), 0
+        Code.put(Code.aload);       // Stek: len(a)
+        Code.loadConst(0);       // Stek: len(a), 0
+        Code.putFalseJump(Code.eq, 0);
+        int jumpHaveElem = Code.pc - 2;
+
+        // dodavanje prvog elem
+        Code.put(Code.load_n);      // Stek: adr(a)
+        Code.loadConst(1);       // Stek: adr(a), 1
+        Code.putJump(0);
+        int jumpAddedFirstElem = Code.pc - 2;
+
+        // provera da li se element nalazi vec u listi
+        Code.fixup(jumpHaveElem);
+        Code.put(Code.load_n);      // Stek: adr(a)
+        Code.loadConst(1);       // Stek: adr(a), i = 1
+        int continueLoopInSet = Code.pc;
+        Code.put(Code.dup_x1);      // Stek: i, adr(a), i
+        Code.put(Code.aload);       // Stek: i, a[i]
+        Code.put(Code.load_1);      // Stek: i, a[i], b
+        Code.putFalseJump(Code.ne, 0);
+        int jumpAlreadyInSet = Code.pc - 2;
+
+        // provera da li smo dosli do kraja
+        Code.loadConst(1);       // Stek: i, 1
+        Code.put(Code.add);         // Stek: new-i
+        Code.put(Code.load_n);      // Stek: new-i, adr(a)
+        Code.put(Code.dup_x1);      // Stek: adr(a), new-i, adr(a)
+        Code.put(Code.pop);         // Stek: adr(a), new-i
+        Code.put(Code.dup);         // Stek: adr(a), i, i
+        Code.put(Code.load_n);      // Stek: adr(a), i, i, adr(a)
+        Code.loadConst(0);       // Stek: adr(a), i, i, adr(a), 0
+        Code.put(Code.aload);       // Stek: adr(a), i, i, len(a)
+        Code.putFalseJump(Code.gt, continueLoopInSet);
+
+        // dodavanje elementa u listu
+        Code.fixup(jumpAddedFirstElem);
+        Code.put(Code.load_1);      // Stek: adr(a), i, b
+        Code.put(Code.astore);      // Stek:
+        Code.put(Code.load_n);      // Stek: adr(a)
+        Code.loadConst(0);       // Stek: adr(a), 0
+        Code.put(Code.dup2);        // Stek: adr(a), 0, adr(a), 0
+        Code.put(Code.aload);       // Stek: adr(a), 0, len(a)
+        Code.loadConst(1);       // Stek: adr(a), 0, len(a), 1
+        Code.put(Code.add);         // Stek: adr(a), 0, new-len(a)
+        Code.put(Code.astore);      // Stek:
+        Code.putJump(0);
+        int jumpElemAddedInSet = Code.pc - 2;
+
+        // izlazak iz funkcije
+        Code.fixup(jumpAlreadyInSet);
+        Code.put(Code.pop);
+        Code.fixup(jumpNoSpace);
+        Code.fixup(jumpElemAddedInSet);
+        Code.put(Code.exit);
+        Code.put(Code.return_);
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // addAll
+        Obj addAllMeth = Tab.find("addAll");
+        addAllMeth.setAdr(Code.pc);
+        Code.put(Code.enter);
+        Code.put(2);    // fp: set a, int b
+        Code.put(2);    // lp:
+
+        // prolazak kroz niz
+        Code.loadConst(0);       // Stek: i = 0
+        int continueLoopInArr = Code.pc;
+        Code.put(Code.dup);         // Stek: i, i
+        Code.put(Code.load_1);      // Stek: i, i, adr(b)
+        Code.put(Code.arraylength); // Stek: i, i, len(b)
+        Code.putFalseJump(Code.lt, 0);
+        int jumpEndOfArr = Code.pc - 2;
+
+        // poziv add za b[i]
+        Code.put(Code.dup);         // Stek: i, i
+        Code.put(Code.load_n);      // Stek: i, i, adr(a)
+        Code.put(Code.dup_x1);      // Stek: i, adr(a), i, adr(a)
+        Code.put(Code.pop);         // Stek: i, adr(a), i
+        Code.put(Code.load_1);      // Stek: i, adr(a), i, adr(b)
+        Code.put(Code.dup_x1);      // Stek: i, adr(a), adr(b), i, adr(b)
+        Code.put(Code.pop);         // Stek: i, adr(a), adr(b), i
+        Code.put(Code.aload);       // Stek: i, adr(a), b[i]
+        int offset = addMeth.getAdr() - Code.pc;
+        Code.put(Code.call);
+        Code.put2(offset);
+        Code.loadConst(1);       // Stek: i, 1
+        Code.put(Code.add);         // Stek: new-i
+        Code.putJump(continueLoopInArr);
+
+        Code.fixup(jumpEndOfArr);
+        Code.put(Code.pop);
+        Code.put(Code.exit);
+        Code.put(Code.return_);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // printSet
+        printSetMeth = Code.pc;
+        Code.put(Code.enter);
+        Code.put(1);    // fp: set a
+        Code.put(1);
+
+        // provera da li ima elemenata
+        Code.put(Code.load_n);      // Stek: adr(a)
+        Code.loadConst(0);       // Stek: adr(a), 0
+        Code.put(Code.aload);       // Stek: len(a)
+        Code.loadConst(0);       // Stek: len(a), 0
+        Code.putFalseJump(Code.ne, 0);
+        int  jumpNoElem = Code.pc - 2;
+
+        // prolazak kroz sve elemente
+        Code.put(Code.load_n);      // Stek: adr(a)
+        Code.loadConst(1);       // Stek: adr(a), i = 1
+        int continuePrintLoopInSet = Code.pc;
+        Code.put(Code.dup_x1);      // Stek: i, adr(a), i
+        Code.put(Code.aload);       // Stek: i, a[i]
+
+        //print a[i]
+        Code.loadConst(0);       // Stek: i, a[i], 0
+        Code.put(Code.print);       // Stek: i
+
+        //print ' '
+        Code.loadConst(' ');    // Stek: i, ' '
+        Code.loadConst(0);      // Stek: i, ' ', 0
+        Code.put(Code.bprint);     // Stek: i
+
+        // provera da li smo dosli do kraja
+        Code.loadConst(1);       // Stek: i, 1
+        Code.put(Code.add);         // Stek: new-i
+        Code.put(Code.load_n);      // Stek: new-i, adr(a)
+        Code.put(Code.dup_x1);      // Stek: adr(a), new-i, adr(a)
+        Code.put(Code.pop);         // Stek: adr(a), new-i
+        Code.put(Code.dup);         // Stek: adr(a), i, i
+        Code.put(Code.load_n);      // Stek: adr(a), i, i, adr(a)
+        Code.loadConst(0);       // Stek: adr(a), i, i, adr(a), 0
+        Code.put(Code.aload);       // Stek: adr(a), i, i, len(a)
+        Code.putFalseJump(Code.gt, continuePrintLoopInSet);
+
+        // izlazak iz funkcije
+        Code.put(Code.pop);
+        Code.put(Code.pop);
+        Code.fixup(jumpNoElem);
+        Code.put(Code.exit);
+        Code.put(Code.return_);
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // unionMeth
+        unionMeth = Code.pc;
+        Code.put(Code.enter);
+        Code.put(3);    // fp: set s, set a, set b
+        Code.put(3);
+
+        Code.put(Code.exit);
+        Code.put(Code.return_);
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    }
 
     private int getRelopCode(Relop relop) {
         if(relop instanceof Eq)
@@ -66,10 +289,10 @@ public class CodeGenerator extends VisitorAdaptor {
         // tacna
     }
 
-    public void visit(CondTerm condTerm){
+    public void visit(ConditionTerm condTerm){
         // tacne
         Code.putJump(0 ); // tacne bacamo na THEN
-        skipCondFact.push(Code.pc - 2);
+        skipCondition.push(Code.pc - 2);
         // ovde vracamo netacne
         while(!skipCondFact.empty()){
             Code.fixup(skipCondFact.pop());
@@ -79,17 +302,99 @@ public class CodeGenerator extends VisitorAdaptor {
     public void visit(Condition condition){
         // netacni
         Code.putJump(0); // netacne bacamo na else
-        skipThen = Code.pc - 2;
+        skipThen.push(Code.pc - 2);
         // then
         while(!skipCondition.empty()){
             Code.fixup(skipCondition.pop());
         }
     }
 
+
+
+    public void visit(NoElse noElse){
+        //tacne
+        Code.fixup(skipThen.pop());
+        //tacne + netacne
+    }
+
+    public void visit(Else else_){
+        //tacne
+        Code.putJump(0); // tacne bacamo na kraj ELSE
+        skipElse.push(Code.pc - 2);
+        Code.fixup(skipThen.pop());
+        //netacne
+    }
+
+    public void visit(WithElse withElse) {
+        //netacne
+        Code.fixup(skipElse.pop()); //vracamo tacne koje su preskocili ELSE
+        //netacne + tacne
+    }
+
+
+
+    public void visit(BeginDoWhile beginDoWhile){
+        doBegin.push(Code.pc);
+        breakJumps.push(new ArrayList<>());
+        continueJumps.push(new ArrayList<>());
+    }
+
+    public void visit(DoWhile doWhile){
+        Code.putJump(doBegin.pop());
+        if(!skipThen.empty()){
+            Code.fixup(skipThen.pop());
+        }
+        
+        while(!breakJumps.peek().isEmpty()){
+            Code.fixup(breakJumps.peek().remove(0));
+        }
+        breakJumps.pop();
+    }
+
+    public void visit(Break breakStmt){
+        Code.putJump(0);
+        breakJumps.peek().add(Code.pc - 2);
+    }
+
+    public void visit(Continue continueStmt){
+        Code.putJump(0);
+        continueJumps.peek().add(Code.pc - 2);
+    }
+
+    public void visit(While whileStmt){
+        while(!continueJumps.peek().isEmpty()){
+            Code.fixup(continueJumps.peek().remove(0));
+        }
+        continueJumps.pop();
+    }
+
 ////////////  Designator  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void visit(Assignement assignment) {
-        Code.store(assignment.getDesignator().obj);
+        if(assignment.getDesignatorOrExpr() instanceof DesignatorExpr) {
+            Code.store(assignment.getDesignator().obj);
+        }
+    }
+
+    public void visit(UnionStmt unionStmt) {
+        if(unionStmt.getSetop() instanceof Union){
+//            int offset = unionMeth - Code.pc;
+//            Code.put(Code.call);
+//            Code.put2(offset);
+            Code.load(( (Assignement) unionStmt.getParent()).getDesignator().obj);
+            Code.load(unionStmt.getDesignator().obj);
+            Code.load(unionStmt.getDesignator1().obj);
+
+            int offset = printSetMeth - Code.pc;
+            Code.put(Code.call);
+            Code.put2(offset);
+            offset = printSetMeth - Code.pc;
+            Code.put(Code.call);
+            Code.put2(offset);
+            offset = printSetMeth - Code.pc;
+            Code.put(Code.call);
+            Code.put2(offset);
+        }
     }
 
     public void visit(FunctionCall functionCall) {
@@ -176,6 +481,11 @@ public class CodeGenerator extends VisitorAdaptor {
     }
 
     public void visit(NewFactor newFactor) {
+        if(newFactor.getType().struct.equals(setStruct)){
+            Code.loadConst(1);
+            Code.put(Code.add);
+        }
+
         Code.put(Code.newarray);
         if(newFactor.getType().struct.equals(Tab.charType)){
             Code.put(0);
@@ -195,11 +505,19 @@ public class CodeGenerator extends VisitorAdaptor {
     }
 
     public void visit(Print print){
-        if(print.getExpr().struct.equals(Tab.charType)){
-            Code.put(Code.bprint);
-        }
-        else{
-            Code.put(Code.print);
+        if(print.getExpr().struct.equals(setStruct)){
+            Code.put(Code.pop);      // Stek: .., a
+
+            int offset = printSetMeth - Code.pc;
+            Code.put(Code.call);
+            Code.put2(offset);
+
+        } else {
+            if (print.getExpr().struct.equals(Tab.charType)) {
+                Code.put(Code.bprint);
+            } else {
+                Code.put(Code.print);
+            }
         }
     }
 

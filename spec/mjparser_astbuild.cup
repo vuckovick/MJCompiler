@@ -88,9 +88,8 @@ nonterminal FormParsList FormParsList;
 nonterminal FormPar FormPar;
 nonterminal FormParItem FormParItem;
 nonterminal Statement Statement;
-nonterminal Matched Matched;
-nonterminal Unmatched Unmatched;
-nonterminal IfConstruction IfConstruction;
+nonterminal OptionalElse OptionalElse;
+nonterminal IfCondition IfCondition;
 nonterminal OptionalNumConst OptionalNumConst;
 nonterminal OptionalCondition OptionalCondition;
 nonterminal OptionalDesignatorStatement OptionalDesignatorStatement;
@@ -107,12 +106,16 @@ nonterminal Mulop Mulop;
 nonterminal Setop Setop;
 nonterminal DesignatorStatementWhile DesignatorStatementWhile;
 nonterminal DesignatorOrExprWhile DesignatorOrExprWhile;
+nonterminal Else Else;
+nonterminal While While;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramName, Program, MethodSignature, MethodDecl, Designator, DesignatorIdent;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Consts, MethodType;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, FactorOpt, FactorList, Term, TermList, Expr;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct DesignatorOrExpr, DesignatorOpt, OptionalExpr;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondTermList, CondFactList, CondFact;
+
+precedence left ELSE;
 
 Program     ::= (Program) PROG ProgramName:p DeclList:D1 LBRACE MethodDeclList:M2 RBRACE {: RESULT=new Program(p, D1, M2); RESULT.setLine(pleft); :};
 ProgramName ::= (ProgramName) IDENT:progName {: RESULT=new ProgramName(progName); RESULT.setLine(progNameleft); :};
@@ -198,24 +201,25 @@ Type ::= (Type) IDENT:type {: RESULT=new Type(type); RESULT.setLine(typeleft); :
 
 
 
-Statement   ::= (MatchedStmt) Matched:M1 {: RESULT=new MatchedStmt(M1); RESULT.setLine(M1left); :}
-              | (UnmatchedStmt) Unmatched:U1 {: RESULT=new UnmatchedStmt(U1); RESULT.setLine(U1left); :};
-Unmatched   ::= (UnmatchedIf) IfConstruction:I1 Statement:S2 {: RESULT=new UnmatchedIf(I1, S2); RESULT.setLine(I1left); :}
-		 	  | (UnmatchedIfElse) IfConstruction:I1 Matched:M2 ELSE Unmatched:U3 {: RESULT=new UnmatchedIfElse(I1, M2, U3); RESULT.setLine(I1left); :};
-IfConstruction  ::= (If) IF LPAREN Condition:C1 RPAREN {: RESULT=new If(C1); RESULT.setLine(C1left); :}
-                  | (IfError) IF LPAREN error RPAREN:l {:
+OptionalElse ::= (NoElse) {: RESULT=new NoElse(); :} /* epsilon */
+               | (WithElse) Else:E1 Statement:S2 {: RESULT=new WithElse(E1, S2); RESULT.setLine(E1left); :};
+Else ::= (Else) ELSE {: RESULT=new Else(); :};
+
+IfCondition  ::= (IfCond) Condition:C1 {: RESULT=new IfCond(C1); RESULT.setLine(C1left); :}
+                  | (IfError) error:l {:
                         parser.report_error("Izvrsen oporavak greska pri logickom izraz unutar if konstrukcije do ) u liniji " + lleft, null);
                   :} {: RESULT=new IfError(); :};
 
-Matched     ::= (DesignatorStmtt) DesignatorStatement:D1 {: RESULT=new DesignatorStmtt(D1); RESULT.setLine(D1left); :}
-              | (MatchedIf) IfConstruction:I1 Matched:M2 ELSE Matched:M3 {: RESULT=new MatchedIf(I1, M2, M3); RESULT.setLine(I1left); :}
+Statement     ::= (DesignatorStmtt) DesignatorStatement:D1 {: RESULT=new DesignatorStmtt(D1); RESULT.setLine(D1left); :}
+              | (If) IF LPAREN IfCondition:I1 RPAREN Statement:S2 OptionalElse:O3 {: RESULT=new If(I1, S2, O3); RESULT.setLine(I1left); :}
               | (Break) BREAK SEMI {: RESULT=new Break(); :}
               | (Continue) CONTINUE SEMI {: RESULT=new Continue(); :}
               | (Return) RETURN OptionalExpr:O1 SEMI {: RESULT=new Return(O1); RESULT.setLine(O1left); :}
               | (Read) READ LPAREN Designator:D1 RPAREN SEMI {: RESULT=new Read(D1); RESULT.setLine(D1left); :}
               | (Print) PRINT LPAREN Expr:E1 OptionalNumConst:O2 RPAREN SEMI {: RESULT=new Print(E1, O2); RESULT.setLine(E1left); :}
-              | (DoWhile) BeginDoWhile:B1 Statement:S2 WHILE LPAREN OptionalCondition:O3 {: RESULT=new DoWhile(B1, S2, O3); RESULT.setLine(B1left); :}
+              | (DoWhile) BeginDoWhile:B1 Statement:S2 While:W3 LPAREN OptionalCondition:O4 {: RESULT=new DoWhile(B1, S2, W3, O4); RESULT.setLine(B1left); :}
               | (MatchedStatements) LBRACE StatementList:S1 RBRACE {: RESULT=new MatchedStatements(S1); RESULT.setLine(S1left); :};
+While ::= (While) WHILE {: RESULT=new While(); :};
 BeginDoWhile    ::= (BeginDoWhile) DO {: RESULT=new BeginDoWhile(); :};
 OptionalExpr    ::= (NoReturnExpr) {: RESULT=new NoReturnExpr(); :} /* epsilon */
                   | (ReturnExpr) Expr:E1 {: RESULT=new ReturnExpr(E1); RESULT.setLine(E1left); :};

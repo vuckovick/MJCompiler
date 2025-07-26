@@ -1,11 +1,11 @@
 // generated with ast extension for cup
 // version 0.8
-// 18/6/2025 15:55:44
+// 26/6/2025 18:20:58
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class IfError extends IfConstruction {
+public class IfError extends IfCondition {
 
     public IfError () {
     }
