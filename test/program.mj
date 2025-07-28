@@ -8,7 +8,11 @@ int x, y[];
         print(1);
     }
 
-    int f() { return 2; }
+    int f1(){
+        print('a');
+    }
+
+    int f(int a) { return a; }
 
     void main() int a, j, i, c[]; char carr[]; set s1, s2; {
         c = new int[4];
@@ -16,15 +20,23 @@ int x, y[];
         c[1] = 2;
         c[2] = 2;
         c[3] = 5;
+        j = f map c;
+        print(j);
+        print(eol);
         s = new set[5];
         add(s, 3);
         s1 = new set[2];
         s2 = new set[3];
         addAll(s1, c);
-        add(s2, 6);
+        add(s2, 5);
         add(s2, 8);
         add(s2, 9);
         s = s1 union s2;
+        print(s1);
+        print(eol);
+        print(s2);
+        print(eol);
+        print(s);
         print(eol);
         i = 5;
         do {

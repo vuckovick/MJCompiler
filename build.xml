@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="MJCompiler" default="compile" basedir=".">
 
+    <!-- Define a property for the input file with a default value -->
+    <property name="input.file" value="test/program.obj"/>
+
     <target name="delete">
         <delete>
             <fileset dir="src/rs/ac/bg/etf/pp1">
@@ -59,16 +62,16 @@
 
     <target name="disasm">
         <java classname="rs.etf.pp1.mj.runtime.disasm">
-            <arg value="test/program.obj"/>
+            <arg value="${input.file}"/>
             <classpath>
                 <pathelement location="lib/mj-runtime-1.1.jar"/>
             </classpath>
         </java>
     </target>
 
-    <target name="debugObj" depends="disasm" >
+    <target name="debugObj" depends="disasm">
         <java classname="rs.etf.pp1.mj.runtime.Run" input="test/input.txt">
-            <arg value="test/program.obj"/>
+            <arg value="${input.file}"/>
             <arg value="-debug"/>
             <classpath>
                 <pathelement location="lib/mj-runtime-1.1.jar"/>
@@ -78,7 +81,7 @@
 
     <target name="runObj" depends="debugObj">
         <java classname="rs.etf.pp1.mj.runtime.Run" input="test/input.txt">
-            <arg value="test/program.obj"/>
+            <arg value="${input.file}"/>
             <classpath>
                 <pathelement location="lib/mj-runtime-1.1.jar"/>
             </classpath>

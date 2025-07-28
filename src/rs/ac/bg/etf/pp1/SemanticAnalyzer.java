@@ -339,14 +339,15 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     }
 
     public void visit(MethodDecl methodDecl) {
-        if (!returnFound && currMethodObj.getType() != Tab.noType) {
-            report_error("Greska na liniji " + methodDecl.getLine() + ": Funcija " + currMethodObj.getName()
-                    + " nema return iskaz!", null);
-        }
+//        if (!returnFound && currMethodObj.getType() != Tab.noType) {
+//            report_error("Greska na liniji " + methodDecl.getLine() + ": Funcija " + currMethodObj.getName()
+//                    + " nema return iskaz!", null);
+//        }
 
         Tab.chainLocalSymbols(currMethodObj);
         Tab.closeScope();
 
+        methodDecl.obj = currMethodObj;
         returnFound = false;
         currMethodObj = null;
     }

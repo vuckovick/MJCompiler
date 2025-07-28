@@ -12,7 +12,7 @@ import java.util.Stack;
 
 public class CodeGenerator extends VisitorAdaptor {
     private int mainPc;
-    private final int printSetMeth, unionMeth;
+    private final int printSetMeth;
     private final Stack<Integer> skipCondFact = new Stack<>();
     private final Stack<Integer> skipCondition = new Stack<>();
     private final Stack<Integer> skipThen = new Stack<>();
@@ -21,6 +21,8 @@ public class CodeGenerator extends VisitorAdaptor {
     private final Stack<List<Integer>> breakJumps = new Stack<>();
     private final Stack<List<Integer>> continueJumps = new Stack<>();
     private final Struct setStruct;
+    private final Obj addMeth;
+    private boolean returnHappend = false;
 
     CodeGenerator(){
         //setStruct
@@ -56,7 +58,7 @@ public class CodeGenerator extends VisitorAdaptor {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // add
-        Obj addMeth = Tab.find("add");
+        addMeth = Tab.find("add");
         addMeth.setAdr(Code.pc);
         Code.put(Code.enter);
         Code.put(2);    // fp: set a, int b
@@ -223,17 +225,6 @@ public class CodeGenerator extends VisitorAdaptor {
         Code.put(Code.exit);
         Code.put(Code.return_);
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        // unionMeth
-        unionMeth = Code.pc;
-        Code.put(Code.enter);
-        Code.put(3);    // fp: set s, set a, set b
-        Code.put(3);
-
-        Code.put(Code.exit);
-        Code.put(Code.return_);
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
     private int getRelopCode(Relop relop) {
@@ -270,8 +261,14 @@ public class CodeGenerator extends VisitorAdaptor {
     }
 
     public void visit(MethodDecl methodDecl) {
+        if(!methodDecl.obj.getType().equals(Tab.noType) && !returnHappend){
+            Code.put(Code.trap);
+            Code.put(1);
+        }
+
         Code.put(Code.exit);
         Code.put(Code.return_);
+        returnHappend = false;
     }
 
 ////////////  Condition  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -376,24 +373,64 @@ public class CodeGenerator extends VisitorAdaptor {
         }
     }
 
-    public void visit(UnionStmt unionStmt) {
-        if(unionStmt.getSetop() instanceof Union){
-//            int offset = unionMeth - Code.pc;
-//            Code.put(Code.call);
-//            Code.put2(offset);
-            Code.load(( (Assignement) unionStmt.getParent()).getDesignator().obj);
-            Code.load(unionStmt.getDesignator().obj);
-            Code.load(unionStmt.getDesignator1().obj);
+    public void addForAllElemInSet(Obj dest, Obj a){
+        Code.load(a);               // Stek: adr(a)
+        Code.loadConst(0);       // Stek: adr(a), 0
+        Code.put(Code.aload);       // Stek: len(a)
+        Code.loadConst(0);       // Stek: len(a), 0
+        Code.putFalseJump(Code.ne, 0);
+        int  jumpNoElem = Code.pc - 2;
 
-            int offset = printSetMeth - Code.pc;
-            Code.put(Code.call);
-            Code.put2(offset);
-            offset = printSetMeth - Code.pc;
-            Code.put(Code.call);
-            Code.put2(offset);
-            offset = printSetMeth - Code.pc;
-            Code.put(Code.call);
-            Code.put2(offset);
+        // prolazak kroz sve elemente
+        Code.load(dest);               // Stek: adr(dest)
+        Code.load(a);                  // Stek: adr(dest), adr(a)
+        Code.loadConst(1);          // Stek: adr(dest), adr(a), i = 1
+        int continuePrintLoopInSet = Code.pc;
+        Code.put(Code.dup_x2);         // Stek: i, adr(dest), adr(a), i
+        Code.put(Code.aload);          // Stek: i, adr(dest), a[i]
+
+        //add a[i]
+        int offset = addMeth.getAdr() - Code.pc;
+        Code.put(Code.call);
+        Code.put2(offset);             // Stek: i
+
+        // provera da li smo dosli do kraja
+        Code.load(dest);            // Stek: i, adr(dest)
+        Code.put(Code.dup_x1);      // Stek: adr(dest), i, adr(dest)
+        Code.put(Code.pop);         // Stek: adr(dest), i
+        Code.loadConst(1);       // Stek: adr(dest), i, 1
+        Code.put(Code.add);         // Stek: adr(dest), new-i
+        Code.load(a);               // Stek: adr(dest), new-i, adr(a)
+        Code.put(Code.dup_x1);      // Stek: adr(dest), adr(a), new-i, adr(a)
+        Code.put(Code.pop);         // Stek: adr(dest), adr(a), new-i
+        Code.put(Code.dup);         // Stek: adr(dest), adr(a), i, i
+        Code.load(a);               // Stek: adr(dest), adr(a), i, i, adr(a)
+        Code.loadConst(0);       // Stek: adr(dest), adr(a), i, i, adr(a), 0
+        Code.put(Code.aload);       // Stek: adr(dest), adr(a), i, i, len(a)
+        Code.putFalseJump(Code.gt, continuePrintLoopInSet);
+
+        // izlazak iz funkcije
+        Code.put(Code.pop);
+        Code.put(Code.pop);
+        Code.fixup(jumpNoElem);
+    }
+
+    public void visit(UnionStmt unionStmt) {
+        Obj dest = ((Assignement) unionStmt.getParent()).getDesignator().obj;
+        Obj a = unionStmt.getDesignator().obj;
+        Obj b = unionStmt.getDesignator1().obj;
+        if(unionStmt.getSetop() instanceof Union){
+            // brisanje dest
+            Code.load(dest);        // Stek: dest
+            Code.loadConst(0);   // Stek: dest, 0
+            Code.loadConst(0);   // Stek: dest, 0, 0
+            Code.put(Code.astore);
+
+            // dodavanje elemenata iz a
+            addForAllElemInSet(dest, a);
+
+            // dodavanje elemenata iz b
+            addForAllElemInSet(dest, b);
         }
     }
 
@@ -430,6 +467,43 @@ public class CodeGenerator extends VisitorAdaptor {
     }
 
 ////////////  Factor  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void visit(MapExpretion mapExpretion){
+        Obj methObj = mapExpretion.getDesignator().obj;
+        Obj arrayObj = mapExpretion.getDesignator1().obj;
+
+        Code.loadConst(0);      // Stek: sum
+        Code.loadConst(0);      // Stek: sum, i
+
+        // prolazak kroz niz
+        int jumpLoopArr = Code.pc;
+        Code.put(Code.dup);        // Stek: sum, i, i
+        Code.load(arrayObj);       // Stek: sum, i, i, arr
+        Code.put(Code.arraylength);// Stek: sum, i, i, len(arr)
+        Code.putFalseJump(Code.ne, 0);
+        int jumpOutOfLoop = Code.pc - 2;
+        Code.put(Code.dup);        // Stek: sum, i, i
+        Code.load(arrayObj);       // Stek: sum, i, i, arr
+        Code.put(Code.dup_x1);     // Stek: sum, i, arr, i, arr
+        Code.put(Code.pop);        // Stek: sum, i, arr, i
+        Code.put(Code.aload);      // Stek: sum, i, arr[i]
+        int offset = methObj.getAdr() - Code.pc;
+        Code.put(Code.call);
+        Code.put2(offset);
+        Code.put(Code.dup_x2);     // Stek: ret, sum, i, ret
+        Code.put(Code.pop);        // Stek: ret, sum, i
+        Code.loadConst(1);      // Stek: ret, sum, i, 1
+        Code.put(Code.add);        // Stek: ret, sum, new-i
+        Code.put(Code.dup_x2);     // Stek: i, ret, sum, i
+        Code.put(Code.pop);        // Stek: i, ret, sum
+        Code.put(Code.add);        // Stek: i, new-sum
+        Code.put(Code.dup_x1);     // Stek: sum, i, sum
+        Code.put(Code.pop);        // Stek: sum, i
+        Code.putJump(jumpLoopArr);
+
+        Code.fixup(jumpOutOfLoop);
+        Code.put(Code.pop);        // Stek: sum
+    }
 
     public void visit(AddTerms addTerms) {
         if(addTerms.getAddop() instanceof Plus){
@@ -534,6 +608,7 @@ public class CodeGenerator extends VisitorAdaptor {
     public void visit(Return returnStmt){
         Code.put(Code.exit);
         Code.put(Code.return_);
+        returnHappend = true;
     }
 
 }

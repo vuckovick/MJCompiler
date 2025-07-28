@@ -23,7 +23,9 @@ public class Compiler {
 
         Reader br = null;
         try {
-            File sourceCode = new File("test/program.mj");
+            String inputFilePath = args.length > 0 ? args[0] : "test/program.mj";
+            String outputFilePath = args.length > 1 ? args[1] : "test/program.obj";
+            File sourceCode = new File(inputFilePath);
 
             log.info("Compiling source file: " + sourceCode.getAbsolutePath());
 //			log.info("====================================================================");
@@ -63,7 +65,7 @@ public class Compiler {
 
             if(!p.errorDetected && v.passed()){
                 //generisanje koda
-                File objFile = new File("test/program.obj");
+                File objFile = new File(outputFilePath);
                 if(objFile.exists()){
                     objFile.delete();
                 }
